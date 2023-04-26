@@ -18,6 +18,10 @@ public class BoardService {
 		List<Board> list = mapper.selectAll();
 		return list;
 	}
+
+	public Board getBoard(Integer id) {
+		return mapper.selectById(id);
+	}
 }
 
 
