@@ -78,6 +78,16 @@ public class BoardController {
 			return "redirect:/id/" + id;
 		}
 	}
+	
+	@GetMapping("add")
+	public void addForm() {
+		// 게시물 작성 form (view)로 포워드
+	}
+	
+	@PostMapping("add")
+	public void addProcess() {
+		// 새 게시물 db에 추가
+	}
 }
 
 
