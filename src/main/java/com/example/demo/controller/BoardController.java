@@ -54,9 +54,15 @@ public class BoardController {
 	@PostMapping("/modify/{id}")
 	public String modifyProcess(Board board) {
 		
-		service.modify(board);
+		boolean ok = service.modify(board);
 		
-		return null;
+		if (ok) {
+			// 해당 게시물 보기로 리디렉션
+			return "redirect:/id/" + board.getId();
+		} else {
+			// 수정 form 으로 리디렉션
+			return "redirect:/modify/" + board.getId();
+		}
 	}
 }
 
