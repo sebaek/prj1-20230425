@@ -72,9 +72,9 @@ public class BoardController {
 	public String remove(Integer id) {
 		boolean ok = service.remove(id);
 		if (ok) {
-			return null;
+			return "redirect:/list";
 		} else {
-			return null;
+			return "redirect:/id/" + id;
 		}
 	}
 }
