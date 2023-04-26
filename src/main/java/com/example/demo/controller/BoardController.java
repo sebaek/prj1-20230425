@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.*;
 
 import com.example.demo.domain.*;
 import com.example.demo.service.*;
@@ -52,15 +53,17 @@ public class BoardController {
 	
 //	@RequestMapping(value = "/modify/{id}", method = RequestMethod.POST)
 	@PostMapping("/modify/{id}")
-	public String modifyProcess(Board board) {
+	public String modifyProcess(Board board, RedirectAttributes rttr) {
 		
 		boolean ok = service.modify(board);
 		
 		if (ok) {
 			// 해당 게시물 보기로 리디렉션
+			rttr.addAttribute("success", "success");
 			return "redirect:/id/" + board.getId();
 		} else {
 			// 수정 form 으로 리디렉션
+			rttr.addAttribute("fail", "fail");
 			return "redirect:/modify/" + board.getId();
 		}
 	}
