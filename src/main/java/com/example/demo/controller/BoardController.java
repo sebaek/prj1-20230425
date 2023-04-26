@@ -8,14 +8,14 @@ import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.domain.*;
-import com.example.demo.mapper.*;
+import com.example.demo.service.*;
 
 @Controller
 @RequestMapping("/")
 public class BoardController {
 	
 	@Autowired
-	private BoardMapper mapper;
+	private BoardService service;
 
 	// 경로 : http://localhost:8080
 	// 경로 : http://localhost:8080/list
@@ -25,7 +25,7 @@ public class BoardController {
 	public String list(Model model) {
 		// 1. request param 수집/가공
 		// 2. business logic 처리
-		List<Board> list = mapper.selectAll();
+		List<Board> list = service.listBoard();
 		// 3. add attribute
 		model.addAttribute("boardList", list);
 		
