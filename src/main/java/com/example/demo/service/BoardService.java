@@ -8,7 +8,7 @@ import org.springframework.stereotype.*;
 import com.example.demo.domain.*;
 import com.example.demo.mapper.*;
 
-@Component
+@Service
 public class BoardService {
 
 	@Autowired
