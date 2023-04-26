@@ -28,6 +28,11 @@ public class BoardService {
 		
 		return cnt == 1;
 	}
+
+	public boolean remove(Integer id) {
+		int cnt = mapper.deleteById(id);
+		return cnt == 1;
+	}
 }
 
 

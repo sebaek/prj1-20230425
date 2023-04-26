@@ -26,8 +26,16 @@
 		</div>
 		<div>
 			<a class="btn btn-secondary" href="/modify/${board.id }">수정하기</a>
+			<button class="btn btn-danger" form="removeForm" type="submit">삭제하기</button>
 		</div>
 	</div>
+	
+	<div class="d-none">
+		<form action="/remove" method="post" id="removeForm">
+			<input type="text" name="id" value="${board.id }" />
+		</form>
+	</div>
+	
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     
     <c:if test="${not empty param.success }">
