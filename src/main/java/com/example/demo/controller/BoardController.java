@@ -29,7 +29,6 @@ public class BoardController {
 		// 3. add attribute
 		model.addAttribute("boardList", list);
 		
-		System.out.println(list.size());
 		// 4. forward/redirect
 		return "list";
 	}
