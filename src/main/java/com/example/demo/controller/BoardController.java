@@ -45,9 +45,17 @@ public class BoardController {
 	}
 
 	@GetMapping("/modify/{id}")
-	public String modify(@PathVariable("id") Integer id, Model model) {
+	public String modifyForm(@PathVariable("id") Integer id, Model model) {
 		model.addAttribute("board", service.getBoard(id));
 		return "modify";
+	}
+	
+//	@RequestMapping(value = "/modify/{id}", method = RequestMethod.POST)
+	@PostMapping("/modify/{id}")
+	public String modifyProcess(Board board) {
+		System.out.println(board);
+		
+		return null;
 	}
 }
 

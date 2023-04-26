@@ -13,6 +13,7 @@
 	<div class="container-lg">
 		<h1>${board.id } 게시물 수정</h1>
 		<form method="post">
+			<input type="hidden" name="id" value="${board.id }"/>
 			<div>
 				제목 : <input type="text" name="title" value="${board.title }"/>
 			</div>
