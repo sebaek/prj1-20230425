@@ -53,7 +53,8 @@ public class BoardController {
 //	@RequestMapping(value = "/modify/{id}", method = RequestMethod.POST)
 	@PostMapping("/modify/{id}")
 	public String modifyProcess(Board board) {
-		System.out.println(board);
+		
+		service.modify(board);
 		
 		return null;
 	}
