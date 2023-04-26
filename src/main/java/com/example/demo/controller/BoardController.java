@@ -13,7 +13,7 @@ import com.example.demo.service.*;
 @Controller
 @RequestMapping("/")
 public class BoardController {
-	
+
 	@Autowired
 	private BoardService service;
 
@@ -21,18 +21,18 @@ public class BoardController {
 	// 경로 : http://localhost:8080/list
 	// 게시물 목록
 //	@RequestMapping(value = {"/", "list"}, method = RequestMethod.GET)
-	@GetMapping({"/", "list"})
+	@GetMapping({ "/", "list" })
 	public String list(Model model) {
 		// 1. request param 수집/가공
 		// 2. business logic 처리
 		List<Board> list = service.listBoard();
 		// 3. add attribute
 		model.addAttribute("boardList", list);
-		
+
 		// 4. forward/redirect
 		return "list";
 	}
-	
+
 	@GetMapping("/id/{id}")
 	public String board(@PathVariable("id") Integer id, Model model) {
 		// 1. request param
@@ -43,9 +43,13 @@ public class BoardController {
 		// 4. forward/redirect
 		return "get";
 	}
+
+	@GetMapping("/modify/{id}")
+	public String modify(@PathVariable("id") Integer id, Model model) {
+		model.addAttribute("board", service.getBoard(id));
+		return "modify";
+	}
 }
-
-
 
 
 
