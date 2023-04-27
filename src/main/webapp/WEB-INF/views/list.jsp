@@ -14,7 +14,7 @@
 	<my:navBar current="list" />
 
 	<div class="container-lg">
-		<h1>게시물 목록 보기</h1>
+		<h1>게시물 목록</h1>
 		<!-- table.table>thead>tr>th*4^^tbody -->
 		<table class="table">
 			<thead>
