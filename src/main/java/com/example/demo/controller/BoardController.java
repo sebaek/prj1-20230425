@@ -18,8 +18,8 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 
-	// 경로 : http://localhost:8080
-	// 경로 : http://localhost:8080/list
+	// 경로 : http://localhost:8080?page=3
+	// 경로 : http://localhost:8080/list?page=5
 	// 게시물 목록
 //	@RequestMapping(value = {"/", "list"}, method = RequestMethod.GET)
 	@GetMapping({ "/", "list" })
