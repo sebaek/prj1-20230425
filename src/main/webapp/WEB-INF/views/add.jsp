@@ -14,13 +14,13 @@
 		<h1>게시물 작성</h1>
 		<form method="post">
 			<div>
-				제목 : <input type="text" name="title" />
+				제목 : <input type="text" name="title" value="${board.title }"/>
 			</div>
 			<div>
-				본문 : <textarea name="body"></textarea>
+				본문 : <textarea name="body">${board.body }</textarea>
 			</div>
 			<div>
-				작성자 : <input type="text" name="writer" />
+				작성자 : <input type="text" name="writer" value="${board.writer }" />
 			</div>
 			<div>
 				<input type="submit" value="등록" />

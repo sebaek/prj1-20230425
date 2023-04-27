@@ -85,7 +85,7 @@ public class BoardController {
 	}
 	
 	@PostMapping("add")
-	public String addProcess(Board board) {
+	public String addProcess(Board board, RedirectAttributes rttr) {
 		// 새 게시물 db에 추가
 		// 1.
 		// 2.
@@ -95,6 +95,7 @@ public class BoardController {
 		if (ok) {
 			return "redirect:/id/" + board.getId();
 		} else {
+			rttr.addFlashAttribute("board", board);
 			return "redirect:/add";
 		}
 	}
