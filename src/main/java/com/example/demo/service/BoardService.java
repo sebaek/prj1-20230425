@@ -35,8 +35,8 @@ public class BoardService {
 	}
 
 	public boolean addBoard(Board board) {
-//		int cnt = mapper.insert(board);
-		int cnt = 0;
+		int cnt = mapper.insert(board);
+//		int cnt = 0; // 실패
 		return cnt == 1;
 	}
 }
