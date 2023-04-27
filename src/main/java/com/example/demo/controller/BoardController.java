@@ -85,18 +85,18 @@ public class BoardController {
 	}
 	
 	@PostMapping("add")
-	public void addProcess(Board board) {
+	public String addProcess(Board board) {
 		// 새 게시물 db에 추가
 		// 1.
 		// 2.
 		boolean ok = service.addBoard(board);
 		// 3.
-		if (ok) {
-			
-		} else {
-			
-		}
 		// 4.
+		if (ok) {
+			return "redirect:/id/" + board.getId();
+		} else {
+			return "redirect:/add";
+		}
 	}
 }
 
