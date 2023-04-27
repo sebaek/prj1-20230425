@@ -72,7 +72,12 @@ public class BoardController {
 	public String remove(Integer id, RedirectAttributes rttr) {
 		boolean ok = service.remove(id);
 		if (ok) {
-			rttr.addAttribute("success", "remove");
+			// query string에 추가
+//			rttr.addAttribute("success", "remove");
+			
+			// 모델에 추가
+			rttr.addFlashAttribute("message", id + "번 게시물이 삭제되었습니다.");
+			
 			return "redirect:/list";
 		} else {
 			return "redirect:/id/" + id;

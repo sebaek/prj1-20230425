@@ -13,6 +13,8 @@
 
 	<my:navBar current="list" />
 
+	<my:alert></my:alert>
+
 	<div class="container-lg">
 		<h1>게시물 목록</h1>
 		<!-- table.table>thead>tr>th*4^^tbody -->
