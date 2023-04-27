@@ -1,8 +1,8 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-	<div class="container-fluid">
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
+	<div class="container-lg">
 		<a class="navbar-brand" href="/list">중앙게시판</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
