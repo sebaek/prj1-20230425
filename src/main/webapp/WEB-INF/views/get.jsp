@@ -12,6 +12,8 @@
 <body>
 
 	<my:navBar></my:navBar>
+	
+	<my:alert></my:alert>
 
 
 	<div class="container-lg">
@@ -69,11 +71,6 @@
 		});
 	</script>
 
-	<c:if test="${not empty param.success }">
-		<script>
-			alert("게시물이 수정되었습니다.");
-		</script>
-	</c:if>
 </body>
 </html>
 
