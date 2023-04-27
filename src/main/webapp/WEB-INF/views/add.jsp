@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<my:navBar />
+	<my:navBar current="add" />
 
 	<div class="container-lg">
 		<h1>게시물 작성</h1>

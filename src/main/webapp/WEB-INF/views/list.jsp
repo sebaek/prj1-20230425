@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<my:navBar />
+	<my:navBar current="list" />
 
 	<div class="container-lg">
 		<h1>게시물 목록 보기</h1>
