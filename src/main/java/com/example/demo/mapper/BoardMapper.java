@@ -52,16 +52,21 @@ public interface BoardMapper {
 	int insert(Board board);
 
 	@Select("""
+			<script>
+			<bind name="pattern" value="'%' + search + '%'" />
 			SELECT
 				id,
 				title,
 				writer,
 				inserted
 			FROM Board
+			WHERE 
+				title LIKE #{pattern}
 			ORDER BY id DESC
 			LIMIT #{startIndex}, #{rowPerPage}
+			</script>
 			""")
-	List<Board> selectAllPaging(Integer startIndex, Integer rowPerPage);
+	List<Board> selectAllPaging(Integer startIndex, Integer rowPerPage, String search);
 
 	@Select("""
 			SELECT COUNT(*) 
