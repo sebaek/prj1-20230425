@@ -63,6 +63,9 @@
 					<c:forEach begin="${pageInfo.leftPageNum }" end="${pageInfo.rightPageNum }" var="pageNum">
 						<c:url value="/list" var="pageLink">
 							<c:param name="page" value="${pageNum }" />
+							<c:if test="${not empty param.search }" >
+								<c:param name="search" value="${param.search }" />
+							</c:if>
 						</c:url>
 						<li class="page-item">
 							<a class="page-link ${pageNum eq pageInfo.currentPageNum ? 'active' : '' }" href="${pageLink }">${pageNum }</a>
