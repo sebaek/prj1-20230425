@@ -52,12 +52,15 @@ public class BoardService {
 		Integer numOfRecords = mapper.countAll();
 		// 마지막 페이지 번호
 		Integer lastPageNumber = (numOfRecords - 1) / rowPerPage + 1;
-		
 		// 페이지네이션 왼쪽번호
 		Integer leftPageNum = page - 5;
+		// 1보다 작을 수 없음
+		leftPageNum = Math.max(leftPageNum, 1);
 		
 		// 페이지네이션 오른쪽번호
 		Integer rightPageNum = page + 4;
+		// 마지막페이지보다 클 수 없음
+		rightPageNum = Math.min(rightPageNum, lastPageNumber);
 		
 		Map<String, Object> pageInfo = new HashMap<>();
 		pageInfo.put("rightPageNum", rightPageNum);
