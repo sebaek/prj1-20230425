@@ -71,10 +71,17 @@ public interface BoardMapper {
 	List<Board> selectAllPaging(Integer startIndex, Integer rowPerPage, String search);
 
 	@Select("""
+			<script>
+			<bind name="pattern" value="'%' + search + '%'" />
 			SELECT COUNT(*) 
 			FROM Board
+			WHERE 
+				   title  LIKE #{pattern}
+				OR body   LIKE #{pattern}
+				OR writer LIKE #{pattern}
+			</script>
 			""")
-	Integer countAll();
+	Integer countAll(String search);
 	
 
 	
