@@ -61,7 +61,9 @@ public interface BoardMapper {
 				inserted
 			FROM Board
 			WHERE 
-				title LIKE #{pattern}
+				   title  LIKE #{pattern}
+				OR body   LIKE #{pattern}
+				OR writer LIKE #{pattern}
 			ORDER BY id DESC
 			LIMIT #{startIndex}, #{rowPerPage}
 			</script>
