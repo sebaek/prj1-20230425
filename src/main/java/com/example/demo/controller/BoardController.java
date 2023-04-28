@@ -31,8 +31,9 @@ public class BoardController {
 		Map<String, Object> result = service.listBoard(page); // 페이지 처리
 		
 		// 3. add attribute
-		model.addAttribute("boardList", result.get("boardList"));
-		model.addAttribute("pageInfo", result.get("pageInfo"));
+//		model.addAttribute("boardList", result.get("boardList"));
+//		model.addAttribute("pageInfo", result.get("pageInfo"));
+		model.addAllAttributes(result);
 
 		// 4. forward/redirect
 		return "list";
