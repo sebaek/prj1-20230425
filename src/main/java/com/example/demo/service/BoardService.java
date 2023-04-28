@@ -65,6 +65,7 @@ public class BoardService {
 		Map<String, Object> pageInfo = new HashMap<>();
 		pageInfo.put("rightPageNum", rightPageNum);
 		pageInfo.put("leftPageNum", leftPageNum);
+		pageInfo.put("currentPageNum", page);
 		
 		// 게시물 목록
 		List<Board> list = mapper.selectAllPaging(startIndex, rowPerPage);

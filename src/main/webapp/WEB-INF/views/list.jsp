@@ -52,7 +52,7 @@
 							<c:param name="page" value="${pageNum }" />
 						</c:url>
 						<li class="page-item">
-							<a class="page-link" href="${pageLink }">${pageNum }</a>
+							<a class="page-link ${pageNum eq pageInfo.currentPageNum ? 'active' : '' }" href="${pageLink }">${pageNum }</a>
 						</li>
 					</c:forEach>
 
