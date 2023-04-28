@@ -28,10 +28,11 @@ public class BoardController {
 		// 1. request param 수집/가공
 		// 2. business logic 처리
 		// List<Board> list = service.listBoard(); // 페이지 처리 전
-		List<Board> list = service.listBoard(page); // 페이지 처리
+		Map<String, Object> result = service.listBoard(page); // 페이지 처리
 		
 		// 3. add attribute
-		model.addAttribute("boardList", list);
+		model.addAttribute("boardList", result.get("boardList"));
+		model.addAttribute("pageInfo", result.get("pageInfo"));
 
 		// 4. forward/redirect
 		return "list";

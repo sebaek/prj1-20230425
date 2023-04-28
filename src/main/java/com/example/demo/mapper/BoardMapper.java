@@ -59,9 +59,15 @@ public interface BoardMapper {
 				inserted
 			FROM Board
 			ORDER BY id DESC
-			LIMIT #{startIndex}, 15
+			LIMIT #{startIndex}, #{rowPerPage}
 			""")
-	List<Board> selectAllPaging(Integer startIndex);
+	List<Board> selectAllPaging(Integer startIndex, Integer rowPerPage);
+
+	@Select("""
+			SELECT COUNT(*) 
+			FROM Board
+			""")
+	Integer countAll();
 	
 
 	

@@ -40,13 +40,34 @@ public class BoardService {
 		return cnt == 1;
 	}
 
-	public List<Board> listBoard(Integer page) {
-		Integer startIndex = (page - 1) * 15;
-		// 게시물 목록
-		return mapper.selectAllPaging(startIndex);
+	public Map<String, Object> listBoard(Integer page) {
+		// 페이지당 행의 수
+		Integer rowPerPage = 5;
+		
+		// 쿼리 LIMIT 절에 사용할 시작 인덱스
+		Integer startIndex = (page - 1) * rowPerPage;
 		
 		// 페이지네이션이 필요한 정보
+		// 전체 레코드 수
+		Integer numOfRecords = mapper.countAll();
+		// 마지막 페이지 번호
+		Integer lastPageNumber = (numOfRecords - 1) / rowPerPage + 1;
 		
+		// 페이지네이션 왼쪽번호
+		Integer leftPageNum = page - 5;
+		
+		// 페이지네이션 오른쪽번호
+		Integer rightPageNum = page + 4;
+		
+		Map<String, Object> pageInfo = new HashMap<>();
+		pageInfo.put("rightPageNum", rightPageNum);
+		pageInfo.put("leftPageNum", leftPageNum);
+		
+		// 게시물 목록
+		List<Board> list = mapper.selectAllPaging(startIndex, rowPerPage);
+		
+		return Map.of("pageInfo", pageInfo, 
+				      "boardList", list);
 	}
 }
 

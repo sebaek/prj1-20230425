@@ -47,7 +47,7 @@
 			<nav aria-label="Page navigation example">
 				<ul class="pagination justify-content-center">
 
-					<c:forEach begin="1" end="10" var="pageNum">
+					<c:forEach begin="${pageInfo.leftPageNum }" end="${pageInfo.rightPageNum }" var="pageNum">
 						<c:url value="/list" var="pageLink">
 							<c:param name="page" value="${pageNum }" />
 						</c:url>
