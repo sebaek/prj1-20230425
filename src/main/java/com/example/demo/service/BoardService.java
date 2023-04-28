@@ -58,7 +58,7 @@ public class BoardService {
 		leftPageNum = Math.max(leftPageNum, 1);
 		
 		// 페이지네이션 오른쪽번호
-		Integer rightPageNum = page + 4;
+		Integer rightPageNum = leftPageNum + 9;
 		// 마지막페이지보다 클 수 없음
 		rightPageNum = Math.min(rightPageNum, lastPageNumber);
 		
