@@ -42,7 +42,7 @@ public class BoardService {
 
 	public Map<String, Object> listBoard(Integer page) {
 		// 페이지당 행의 수
-		Integer rowPerPage = 5;
+		Integer rowPerPage = 15;
 		
 		// 쿼리 LIMIT 절에 사용할 시작 인덱스
 		Integer startIndex = (page - 1) * rowPerPage;
