@@ -39,6 +39,15 @@ public class BoardService {
 //		int cnt = 0; // 실패
 		return cnt == 1;
 	}
+
+	public List<Board> listBoard(Integer page) {
+		Integer startIndex = (page - 1) * 15;
+		// 게시물 목록
+		return mapper.selectAllPaging(startIndex);
+		
+		// 페이지네이션이 필요한 정보
+		
+	}
 }
 
 

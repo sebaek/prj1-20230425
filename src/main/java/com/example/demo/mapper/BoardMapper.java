@@ -50,6 +50,18 @@ public interface BoardMapper {
 			""")
 	@Options(useGeneratedKeys = true, keyProperty = "id")
 	int insert(Board board);
+
+	@Select("""
+			SELECT
+				id,
+				title,
+				writer,
+				inserted
+			FROM Board
+			ORDER BY id DESC
+			LIMIT #{startIndex}, 15
+			""")
+	List<Board> selectAllPaging(Integer startIndex);
 	
 
 	
