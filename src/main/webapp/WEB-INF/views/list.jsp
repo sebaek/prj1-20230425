@@ -42,6 +42,26 @@
 		</table>
 	</div>
 
+	<div class="container-lg">
+		<div class="row">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center">
+
+					<c:forEach begin="1" end="10" var="pageNum">
+						<c:url value="/list" var="pageLink">
+							<c:param name="page" value="${pageNum }" />
+						</c:url>
+						<li class="page-item">
+							<a class="page-link" href="${pageLink }">${pageNum }</a>
+						</li>
+					</c:forEach>
+
+
+				</ul>
+			</nav>
+		</div>
+	</div>
+
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
