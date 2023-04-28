@@ -47,6 +47,14 @@
 			<nav aria-label="Page navigation example">
 				<ul class="pagination justify-content-center">
 
+					<!-- 이전 버튼 -->
+					<c:url value="/list" var="pageLink">
+						<c:param name="page" value="${pageInfo.currentPageNum - 1 }" />
+					</c:url>
+					<li class="page-item">
+						<a class="page-link" href="${pageLink }">이전</a>
+					</li>
+
 					<c:forEach begin="${pageInfo.leftPageNum }" end="${pageInfo.rightPageNum }" var="pageNum">
 						<c:url value="/list" var="pageLink">
 							<c:param name="page" value="${pageNum }" />
@@ -56,6 +64,13 @@
 						</li>
 					</c:forEach>
 
+					<!-- 다음 버튼 -->
+					<c:url value="/list" var="pageLink">
+						<c:param name="page" value="${pageInfo.currentPageNum + 1 }" />
+					</c:url>
+					<li class="page-item">
+						<a class="page-link" href="${pageLink }">다음</a>
+					</li>
 
 				</ul>
 			</nav>
