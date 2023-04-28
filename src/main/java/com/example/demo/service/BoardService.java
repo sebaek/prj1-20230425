@@ -66,6 +66,7 @@ public class BoardService {
 		pageInfo.put("rightPageNum", rightPageNum);
 		pageInfo.put("leftPageNum", leftPageNum);
 		pageInfo.put("currentPageNum", page);
+		pageInfo.put("lastPageNum", lastPageNumber);
 		
 		// 게시물 목록
 		List<Board> list = mapper.selectAllPaging(startIndex, rowPerPage);
