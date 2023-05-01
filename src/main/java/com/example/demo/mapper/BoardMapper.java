@@ -61,14 +61,23 @@ public interface BoardMapper {
 				inserted
 			FROM Board
 			WHERE 
+			
+			
+			
 				   title  LIKE #{pattern}
+				   
+				   
+				<if test="type eq 'all'">
 				OR body   LIKE #{pattern}
 				OR writer LIKE #{pattern}
+				</if>
+				
+				
 			ORDER BY id DESC
 			LIMIT #{startIndex}, #{rowPerPage}
 			</script>
 			""")
-	List<Board> selectAllPaging(Integer startIndex, Integer rowPerPage, String search);
+	List<Board> selectAllPaging(Integer startIndex, Integer rowPerPage, String search, String type);
 
 	@Select("""
 			<script>

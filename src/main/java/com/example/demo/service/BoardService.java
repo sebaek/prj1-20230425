@@ -40,7 +40,8 @@ public class BoardService {
 		return cnt == 1;
 	}
 
-	public Map<String, Object> listBoard(Integer page, String search) {
+	public Map<String, Object> listBoard
+			(Integer page, String search, String type) {
 		// 페이지당 행의 수
 		Integer rowPerPage = 15;
 		
@@ -69,7 +70,7 @@ public class BoardService {
 		pageInfo.put("lastPageNum", lastPageNumber);
 		
 		// 게시물 목록
-		List<Board> list = mapper.selectAllPaging(startIndex, rowPerPage, search);
+		List<Board> list = mapper.selectAllPaging(startIndex, rowPerPage, search, type);
 		
 		return Map.of("pageInfo", pageInfo, 
 				      "boardList", list);
