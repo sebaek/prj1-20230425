@@ -84,13 +84,22 @@ public interface BoardMapper {
 			<bind name="pattern" value="'%' + search + '%'" />
 			SELECT COUNT(*) 
 			FROM Board
-			WHERE 
+			
+			<where>
+				<if test="(type eq 'all') or (type eq 'title')">
 				   title  LIKE #{pattern}
+				</if>
+				<if test="(type eq 'all') or (type eq 'body')">
 				OR body   LIKE #{pattern}
+				</if>
+				<if test="(type eq 'all') or (type eq 'writer')">
 				OR writer LIKE #{pattern}
+				</if>
+			</where>
+			
 			</script>
 			""")
-	Integer countAll(String search);
+	Integer countAll(String search, String type);
 	
 
 	
