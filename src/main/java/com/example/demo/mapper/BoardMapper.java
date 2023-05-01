@@ -60,8 +60,8 @@ public interface BoardMapper {
 				writer,
 				inserted
 			FROM Board
-			WHERE 
 			
+			<where>
 				<if test="(type eq 'all') or (type eq 'title')">
 				   title  LIKE #{pattern}
 				</if>
@@ -71,7 +71,8 @@ public interface BoardMapper {
 				<if test="(type eq 'all') or (type eq 'writer')">
 				OR writer LIKE #{pattern}
 				</if>
-				
+			</where>
+			
 			ORDER BY id DESC
 			LIMIT #{startIndex}, #{rowPerPage}
 			</script>
