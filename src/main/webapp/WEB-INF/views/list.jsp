@@ -50,17 +50,23 @@
 
 					<!-- 이전 버튼 -->
 					<c:if test="${pageInfo.currentPageNum gt 1 }">
-						<my:pageItem pageNum="${pageInfo.currentPageNum - 1 }"></my:pageItem>
+						<my:pageItem pageNum="${pageInfo.currentPageNum - 1 }">
+							<i class="fa-solid fa-angle-left"></i>
+						</my:pageItem>
 					</c:if>
 
 					<c:forEach begin="${pageInfo.leftPageNum }" end="${pageInfo.rightPageNum }" var="pageNum">
-						<my:pageItem pageNum="${pageNum }" />
+						<my:pageItem pageNum="${pageNum }">
+							${pageNum }
+						</my:pageItem>
 					</c:forEach>
 
 					<!-- 다음 버튼 -->
 					<c:if test="${pageInfo.currentPageNum lt pageInfo.lastPageNum }">
 						<%-- 페이지 번호 : ${pageInfo.currentPageNum + 1 } --%>
-						<my:pageItem pageNum="${pageInfo.currentPageNum + 1 }"></my:pageItem>
+						<my:pageItem pageNum="${pageInfo.currentPageNum + 1 }">
+							<i class="fa-solid fa-angle-right"></i>
+						</my:pageItem>
 					
 					</c:if>
 
