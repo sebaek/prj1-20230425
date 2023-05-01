@@ -24,6 +24,8 @@
 				<select name="type" id="">
 					<option value="all">전체</option>
 					<option value="title">제목</option>
+					<option value="body">본문</option>
+					<option value="writer">작성자</option>
 				</select>
 				
 				<input value="${param.search }" name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

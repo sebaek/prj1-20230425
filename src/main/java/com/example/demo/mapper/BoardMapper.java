@@ -62,16 +62,15 @@ public interface BoardMapper {
 			FROM Board
 			WHERE 
 			
-			
-			
+				<if test="(type eq 'all') or (type eq 'title')">
 				   title  LIKE #{pattern}
-				   
-				   
-				<if test="type eq 'all'">
+				</if>
+				<if test="(type eq 'all') or (type eq 'body')">
 				OR body   LIKE #{pattern}
+				</if>
+				<if test="(type eq 'all') or (type eq 'writer')">
 				OR writer LIKE #{pattern}
 				</if>
-				
 				
 			ORDER BY id DESC
 			LIMIT #{startIndex}, #{rowPerPage}
