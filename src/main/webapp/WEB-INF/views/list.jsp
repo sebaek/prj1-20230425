@@ -69,6 +69,9 @@
 							<c:if test="${not empty param.search }">
 								<c:param name="search" value="${param.search }" />
 							</c:if>
+							<c:if test="${not empty param.type }">
+								<c:param name="type" value="${param.type }" />
+							</c:if>
 						</c:url>
 						<li class="page-item">
 							<a class="page-link ${pageNum eq pageInfo.currentPageNum ? 'active' : '' }" href="${pageLink }">${pageNum }</a>
