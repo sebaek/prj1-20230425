@@ -13,6 +13,8 @@ public class Board {
 	private LocalDateTime inserted;
 	private String writer;
 	private List<String> fileName;
+	
+	private Integer fileCount;
 }
 
 
