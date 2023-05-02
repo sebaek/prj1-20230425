@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.io.*;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
@@ -35,14 +36,16 @@ public class BoardService {
 		return cnt == 1;
 	}
 
-	public boolean addBoard(Board board, MultipartFile[] files) {
+	public boolean addBoard(Board board, MultipartFile[] files) throws Exception {
 		
 		for (MultipartFile file : files) {
 			if (file.getSize() > 0) {
 				System.out.println(file.getOriginalFilename());
 				System.out.println(file.getSize());
 				// 파일 저장 (파일 시스템에)
-				
+				String path = "C:\\study\\upload\\" + file.getOriginalFilename();
+				File target = new File(path);
+				file.transferTo(target);
 				// db에 관련 정보 저장(insert)
 				
 			}

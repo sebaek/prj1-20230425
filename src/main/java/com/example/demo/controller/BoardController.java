@@ -102,7 +102,7 @@ public class BoardController {
 	@PostMapping("add")
 	public String addProcess(
 			@RequestParam("files") MultipartFile[] files,
-			Board board, RedirectAttributes rttr) {
+			Board board, RedirectAttributes rttr) throws Exception {
 		// 새 게시물 db에 추가
 		// 1.
 		// 2.
