@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
+import org.springframework.web.multipart.*;
 
 import com.example.demo.domain.*;
 import com.example.demo.mapper.*;
@@ -34,7 +35,20 @@ public class BoardService {
 		return cnt == 1;
 	}
 
-	public boolean addBoard(Board board) {
+	public boolean addBoard(Board board, MultipartFile[] files) {
+		
+		for (MultipartFile file : files) {
+			if (file.getSize() > 0) {
+				System.out.println(file.getOriginalFilename());
+				System.out.println(file.getSize());
+				// 파일 저장 (파일 시스템에)
+				
+				// db에 관련 정보 저장(insert)
+				
+			}
+		}
+		
+		// 게시물 insert
 		int cnt = mapper.insert(board);
 //		int cnt = 0; // 실패
 		return cnt == 1;
