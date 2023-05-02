@@ -38,12 +38,22 @@ public class BoardService {
 
 	public boolean addBoard(Board board, MultipartFile[] files) throws Exception {
 		
+		// 게시물 insert
+		int cnt = mapper.insert(board);
+		
 		for (MultipartFile file : files) {
 			if (file.getSize() > 0) {
 				System.out.println(file.getOriginalFilename());
 				System.out.println(file.getSize());
 				// 파일 저장 (파일 시스템에)
-				String path = "C:\\study\\upload\\" + file.getOriginalFilename();
+				// 폴더 만들기
+				String folder = "C:\\study\\upload\\" + board.getId();
+				File targetFolder = new File(folder);
+				if (!targetFolder.exists()) {
+					targetFolder.mkdirs();
+				}
+				
+				String path = folder + "\\" + file.getOriginalFilename();
 				File target = new File(path);
 				file.transferTo(target);
 				// db에 관련 정보 저장(insert)
@@ -51,8 +61,6 @@ public class BoardService {
 			}
 		}
 		
-		// 게시물 insert
-		int cnt = mapper.insert(board);
 //		int cnt = 0; // 실패
 		return cnt == 1;
 	}
