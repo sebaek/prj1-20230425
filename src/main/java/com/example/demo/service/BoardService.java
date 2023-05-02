@@ -57,11 +57,10 @@ public class BoardService {
 				File target = new File(path);
 				file.transferTo(target);
 				// db에 관련 정보 저장(insert)
-				
+				mapper.insertFileName(board.getId(), file.getOriginalFilename());
 			}
 		}
 		
-//		int cnt = 0; // 실패
 		return cnt == 1;
 	}
 
