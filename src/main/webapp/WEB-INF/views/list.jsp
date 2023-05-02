@@ -34,6 +34,7 @@
 						<td>${board.id }</td>
 						<td>
 							<a href="/id/${board.id }"> ${board.title } </a>
+							<span>파일 : ${board.fileCount }</span>
 						</td>
 						<td>${board.writer }</td>
 						<td>${board.inserted }</td>
