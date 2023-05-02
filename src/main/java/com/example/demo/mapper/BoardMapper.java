@@ -100,6 +100,12 @@ public interface BoardMapper {
 			</script>
 			""")
 	Integer countAll(String search, String type);
+
+	@Insert("""
+			INSERT INTO FileName (boardId, fileName)
+			VALUES (#{boardId}, #{fileName})
+			""")
+	Integer insertFileName(Integer boardId, String fileName);
 	
 
 	
