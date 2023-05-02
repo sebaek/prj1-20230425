@@ -34,7 +34,14 @@
 						<td>${board.id }</td>
 						<td>
 							<a href="/id/${board.id }"> ${board.title } </a>
-							<span>파일 : ${board.fileCount }</span>
+							
+							<c:if test="${board.fileCount > 0 }">
+								<span class="badge rounded-pill text-bg-info">
+									<i class="fa-regular fa-images"></i>
+									${board.fileCount }
+								</span>
+							</c:if>
+							
 						</td>
 						<td>${board.writer }</td>
 						<td>${board.inserted }</td>
