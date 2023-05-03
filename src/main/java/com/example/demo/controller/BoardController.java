@@ -32,7 +32,7 @@ public class BoardController {
 		// 2. business logic 처리
 		// List<Board> list = service.listBoard(); // 페이지 처리 전
 		Map<String, Object> result = service.listBoard(page, search, type); // 페이지 처리
-		
+
 		// 3. add attribute
 //		model.addAttribute("boardList", result.get("boardList"));
 //		model.addAttribute("pageInfo", result.get("pageInfo"));
@@ -61,8 +61,10 @@ public class BoardController {
 
 //	@RequestMapping(value = "/modify/{id}", method = RequestMethod.POST)
 	@PostMapping("/modify/{id}")
-	public String modifyProcess(Board board, RedirectAttributes rttr) {
-
+	public String modifyProcess(Board board,
+			@RequestParam(value = "removeFiles", required = false) List<String> removeFileNames,
+			RedirectAttributes rttr) {
+		System.out.println(removeFileNames);
 		boolean ok = service.modify(board);
 
 		if (ok) {

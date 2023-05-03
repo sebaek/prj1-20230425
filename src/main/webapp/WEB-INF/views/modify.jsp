@@ -29,6 +29,19 @@
 						<label for="titleInput" class="form-label">제목</label>
 						<input class="form-control" id="titleInput" type="text" name="title" value="${board.title }" />
 					</div>
+					
+					<!-- 그림 파일 출력 -->
+					<div class="mb-3">
+						<c:forEach items="${board.fileName }" var="fileName" >
+							<input type="checkbox" name="removeFiles" value="${fileName }" id="" />
+							<div class="mb-3">
+								<%-- http://localhost:8080/image/4122/slamdunk.jfif --%>
+								<%-- http://localhost:8080/image/게시물번호/fileName --%>
+								<img class="img-thumbnail img-fluid" src="http://localhost:8080/image/${board.id }/${fileName}" alt="" />
+							</div>
+						</c:forEach>
+					</div>
+					
 					<div class="mb-3">
 						<label for="bodyTextarea" class="form-label">본문</label>
 						<textarea class="form-control" id="bodyTextarea" rows="10" name="body">${board.body }</textarea>
