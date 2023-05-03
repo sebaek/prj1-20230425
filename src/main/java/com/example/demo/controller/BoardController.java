@@ -64,7 +64,7 @@ public class BoardController {
 	public String modifyProcess(Board board,
 			@RequestParam(value = "files", required = false) MultipartFile[] addFiles,
 			@RequestParam(value = "removeFiles", required = false) List<String> removeFileNames,
-			RedirectAttributes rttr) {
+			RedirectAttributes rttr) throws Exception {
 		
 		boolean ok = service.modify(board, addFiles, removeFileNames);
 

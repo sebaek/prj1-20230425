@@ -47,6 +47,9 @@ public class BoardService {
 		// 새 파일 추가
 		for (MultipartFile newFile : addFiles) {
 			if (newFile.getSize() > 0) {
+				// 테이블에 파일명 추가
+				mapper.insertFileName(board.getId(), newFile.getOriginalFilename());
+				
 				String fileName = newFile.getOriginalFilename();
 				String folder = "C:\\study\\upload\\" + board.getId();
 				String path = folder + "\\" + fileName;
