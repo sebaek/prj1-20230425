@@ -53,7 +53,7 @@ public class BoardService {
 				
 				// 디렉토리 없으면 만들기
 				File dir = new File(folder);
-				if (dir.exists()) {
+				if (!dir.exists()) {
 					dir.mkdirs();
 				}
 				
