@@ -51,12 +51,13 @@ public class BoardService {
 				String folder = "C:\\study\\upload\\" + board.getId();
 				String path = folder + "\\" + fileName;
 				
+				// 디렉토리 없으면 만들기
 				File dir = new File(folder);
-				
 				if (dir.exists()) {
 					dir.mkdirs();
 				}
 				
+				// 파일을 하드디스크에 저장
 				File file = new File(path);
 				newFile.transferTo(file);
 			}
