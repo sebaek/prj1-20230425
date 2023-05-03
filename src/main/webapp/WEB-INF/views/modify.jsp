@@ -23,7 +23,7 @@
 
 
 				<h1>${board.id }번 게시물 수정</h1>
-				<form method="post">
+				<form method="post" enctype="multipart/form-data">
 					<input type="hidden" name="id" value="${board.id }" />
 					<div class="mb-3">
 						<label for="titleInput" class="form-label">제목</label>
@@ -54,6 +54,13 @@
 						<label for="" class="form-label">작성일시</label>
 						<input class="form-control" type="text" value="${board.inserted }" readonly />
 					</div>
+					
+					<!-- 새 그림 파일 추가 input -->
+					<div class="mb-3">
+						<label for="fileInput" class="form-label">그림 파일</label>
+						<input class="form-control" type="file" id="fileInput" name="files" accept="image/*" multiple>
+					</div>
+					
 					<div class="mb-3">
 						<input class="btn btn-secondary" type="submit" value="수정" />
 					</div>
