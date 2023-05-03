@@ -64,8 +64,8 @@ public class BoardController {
 	public String modifyProcess(Board board,
 			@RequestParam(value = "removeFiles", required = false) List<String> removeFileNames,
 			RedirectAttributes rttr) {
-		System.out.println(removeFileNames);
-		boolean ok = service.modify(board);
+		
+		boolean ok = service.modify(board, removeFileNames);
 
 		if (ok) {
 			// 해당 게시물 보기로 리디렉션
