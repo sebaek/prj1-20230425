@@ -34,7 +34,26 @@ public class BoardService {
 	}
 
 	public boolean remove(Integer id) {
+		
+		// 파일명 조회
+		List<String> fileNames = mapper.selectFileNamesByBoardId(id);
+		
+		// FileName 테이블의 데이터 지우기
+		mapper.deleteFileNameByBoardId(id);
+		
+		// 하드디스크의 파일 지우기
+		for (String fileName : fileNames) {
+			String path = "C:\\study\\upload\\" + id + "\\" + fileName;
+			File file = new File(path);
+			if (file.exists()) {
+				file.delete();
+			}
+		}
+		
+		// 게시물 테이블의 데이터 지우기
 		int cnt = mapper.deleteById(id);
+		
+		
 		return cnt == 1;
 	}
 
