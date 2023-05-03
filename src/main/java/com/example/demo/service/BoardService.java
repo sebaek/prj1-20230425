@@ -11,9 +11,14 @@ import org.springframework.web.multipart.*;
 import com.example.demo.domain.*;
 import com.example.demo.mapper.*;
 
+import software.amazon.awssdk.services.s3.*;
+
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class BoardService {
+	
+	@Autowired
+	private S3Client s3;
 
 	@Autowired
 	private BoardMapper mapper;
