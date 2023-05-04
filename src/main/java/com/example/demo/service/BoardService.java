@@ -11,7 +11,9 @@ import org.springframework.web.multipart.*;
 import com.example.demo.domain.*;
 import com.example.demo.mapper.*;
 
+import software.amazon.awssdk.core.sync.*;
 import software.amazon.awssdk.services.s3.*;
+import software.amazon.awssdk.services.s3.model.*;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -110,19 +112,17 @@ public class BoardService {
 
 		for (MultipartFile file : files) {
 			if (file.getSize() > 0) {
-				System.out.println(file.getOriginalFilename());
-				System.out.println(file.getSize());
-				// 파일 저장 (파일 시스템에)
-				// 폴더 만들기
-				String folder = "C:\\study\\upload\\" + board.getId();
-				File targetFolder = new File(folder);
-				if (!targetFolder.exists()) {
-					targetFolder.mkdirs();
-				}
-
-				String path = folder + "\\" + file.getOriginalFilename();
-				File target = new File(path);
-				file.transferTo(target);
+				String objectKey = "board/" + board.getId() + "/" + file.getOriginalFilename();
+				
+				PutObjectRequest por = PutObjectRequest.builder()
+						.bucket(bucketName)
+						.key(objectKey)
+						.acl(ObjectCannedACL.PUBLIC_READ)
+						.build();
+				RequestBody rb = RequestBody.fromInputStream(file.getInputStream(), file.getSize());
+				
+				s3.putObject(por, rb);
+				
 				// db에 관련 정보 저장(insert)
 				mapper.insertFileName(board.getId(), file.getOriginalFilename());
 			}
