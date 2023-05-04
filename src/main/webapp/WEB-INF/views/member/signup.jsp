@@ -15,7 +15,7 @@
 
 	<div class="container-lg">
 		<div class="row justify-content-center">
-			<div class="col-12 col-md-8 col-lg-6"></div>
+			<div class="col-12 col-md-8 col-lg-6">
 				<h1>회원 가입</h1>
 				<form method="post">
 					<!-- .mb-3*5>(label.form-label[for]+input.form-control[name]) -->
@@ -39,6 +39,7 @@
 						<input type="submit" class="btn btn-primary" value="가입" />
 					</div>
 				</form>
+			</div>
 		</div>
 	</div>
 
