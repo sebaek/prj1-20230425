@@ -36,6 +36,9 @@
 					<div class="mb-3">
 						<label for="fileInput" class="form-label">그림 파일</label>
 						<input class="form-control" type="file" id="fileInput" name="files" accept="image/*" multiple>
+						<div class="form-text">
+							총 10MB, 하나의 파일은 1MB를 초과할 수 없습니다. 
+						</div>
 					</div>
 
 					<div class="mb-3">
