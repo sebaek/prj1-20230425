@@ -43,6 +43,15 @@ public class MemberController {
 		List<Member> list = service.listMember();
 		model.addAttribute("memberList", list);
 	}
+	
+	// 경로: /member/info?id=asdf
+	@GetMapping("info")
+	public void info(String id, Model model) {
+		
+		Member member = service.get(id);
+		model.addAttribute("member", member);
+		
+	}
 }
 
 
