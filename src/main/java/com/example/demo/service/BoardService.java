@@ -90,13 +90,14 @@ public class BoardService {
 		// FileName 테이블의 데이터 지우기
 		mapper.deleteFileNameByBoardId(id);
 
-		// 하드디스크의 파일 지우기
+		// s3 bucket의 파일(객체) 지우기
 		for (String fileName : fileNames) {
-			String path = "C:\\study\\upload\\" + id + "\\" + fileName;
-			File file = new File(path);
-			if (file.exists()) {
-				file.delete();
-			}
+			String objectKey = "board/" + id + "/" + fileName;
+			DeleteObjectRequest dor = DeleteObjectRequest.builder()
+					.bucket(bucketName)
+					.key(objectKey)
+					.build();
+			s3.deleteObject(dor);
 		}
 
 		// 게시물 테이블의 데이터 지우기
