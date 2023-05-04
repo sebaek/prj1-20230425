@@ -17,12 +17,15 @@ public class CustomConfiguration {
 	@Value("${aws.secretAccessKey}")
 	private String secretAccessKey;
 	
+	@Value("${aws.bucketUrl}")
+	private String bucketUrl;
+	
 	@Autowired
 	private ServletContext application;
 	
 	@PostConstruct
 	public void init() {
-		application.setAttribute("bucketUrl", "https://bucket0503-982hb978eh.s3.ap-northeast-2.amazonaws.com/board");
+		application.setAttribute("bucketUrl", bucketUrl);
 	}
 
 	@Bean
