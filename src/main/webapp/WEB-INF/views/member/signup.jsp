@@ -12,6 +12,8 @@
 </head>
 <body>
 	<my:navBar></my:navBar>
+	
+	<my:alert></my:alert>
 
 	<div class="container-lg">
 		<div class="row justify-content-center">
@@ -21,7 +23,7 @@
 					<!-- .mb-3*5>(label.form-label[for]+input.form-control[name]) -->
 					<div class="mb-3">
 						<label for="inputId" class="form-label">아이디</label>
-						<input id="inputId" type="text" class="form-control" name="id" />
+						<input id="inputId" type="text" class="form-control" name="id" value="${member.id }" />
 					</div>
 					<div class="mb-3">
 						<label for="inputPassword" class="form-label">패스워드</label>
@@ -29,11 +31,11 @@
 					</div>
 					<div class="mb-3">
 						<label for="inputNickName" class="form-label">별명</label>
-						<input id="inputNickName" type="text" class="form-control" name="nickName" />
+						<input id="inputNickName" type="text" class="form-control" name="nickName" value="${member.nickName }" />
 					</div>
 					<div class="mb-3">
 						<label for="inputEmail" class="form-label">이메일</label>
-						<input id="inputEmail" type="email" class="form-control" name="email" />
+						<input id="inputEmail" type="email" class="form-control" name="email" value="${member.email }"/>
 					</div>
 					<div class="mb-3">
 						<input type="submit" class="btn btn-primary" value="가입" />

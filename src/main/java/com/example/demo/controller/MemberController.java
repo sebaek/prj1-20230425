@@ -23,11 +23,14 @@ public class MemberController {
 	@PostMapping("signup")
 	public String signupProcess(Member member, RedirectAttributes rttr) {
 	
-		boolean ok = service.signup(member);
-		
-		if (ok) {
+		try {
+			service.signup(member);
+			rttr.addFlashAttribute("message", "회원 가입되었습니다.");
 			return "redirect:/list";
-		} else {
+		} catch (Exception e) {
+			e.printStackTrace();
+			rttr.addFlashAttribute("member", member);
+			rttr.addFlashAttribute("message", "회원 가입 중 문제가 발생했습니다.");
 			return "redirect:/member/signup";
 		}
 	}
