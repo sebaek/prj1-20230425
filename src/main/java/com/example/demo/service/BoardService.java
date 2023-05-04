@@ -42,12 +42,13 @@ public class BoardService {
 		// FileName 테이블 삭제
 		if (removeFileNames != null && !removeFileNames.isEmpty()) {
 			for (String fileName : removeFileNames) {
-				// 하드디스크에서 삭제
-				String path = "C:\\study\\upload\\" + board.getId() + "\\" + fileName;
-				File file = new File(path);
-				if (file.exists()) {
-					file.delete();
-				}
+				// s3에서 파일(객체) 삭제
+				String objectKey = "board/" + board.getId() + "/" + fileName;
+				DeleteObjectRequest dor = DeleteObjectRequest.builder()
+						.bucket(bucketName)
+						.key(objectKey)
+						.build();
+				s3.deleteObject(dor);
 
 				// 테이블에서 삭제
 				mapper.deleteFileNameByBoardIdAndFileName(board.getId(), fileName);
@@ -60,19 +61,15 @@ public class BoardService {
 				// 테이블에 파일명 추가
 				mapper.insertFileName(board.getId(), newFile.getOriginalFilename());
 
-				String fileName = newFile.getOriginalFilename();
-				String folder = "C:\\study\\upload\\" + board.getId();
-				String path = folder + "\\" + fileName;
-
-				// 디렉토리 없으면 만들기
-				File dir = new File(folder);
-				if (!dir.exists()) {
-					dir.mkdirs();
-				}
-
-				// 파일을 하드디스크에 저장
-				File file = new File(path);
-				newFile.transferTo(file);
+				// s3에 파일(객체) 업로드
+				String objectKey = "board/" + board.getId() + "/" + newFile.getOriginalFilename();
+				PutObjectRequest por = PutObjectRequest.builder()
+						.acl(ObjectCannedACL.PUBLIC_READ)
+						.bucket(bucketName)
+						.key(objectKey)
+						.build();
+				RequestBody rb = RequestBody.fromInputStream(newFile.getInputStream(), newFile.getSize());
+				s3.putObject(por, rb);
 			}
 		}
 
