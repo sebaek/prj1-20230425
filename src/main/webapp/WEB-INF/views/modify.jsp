@@ -52,7 +52,6 @@
 
 									<div class="col-10">
 										<div>
-											<c:set var="bucketUrl" value="https://bucket0503-982hb978eh.s3.ap-northeast-2.amazonaws.com/board" />
 											<img class="img-thumbnail img-fluid" src="${bucketUrl }/${board.id }/${fileName}" alt="" />
 										</div>
 									</div>

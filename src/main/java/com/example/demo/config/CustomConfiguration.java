@@ -3,6 +3,8 @@ package com.example.demo.config;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.context.annotation.*;
 
+import jakarta.annotation.*;
+import jakarta.servlet.*;
 import software.amazon.awssdk.auth.credentials.*;
 import software.amazon.awssdk.regions.*;
 import software.amazon.awssdk.services.s3.*;
@@ -14,6 +16,14 @@ public class CustomConfiguration {
 	private String accessKeyId;
 	@Value("${aws.secretAccessKey}")
 	private String secretAccessKey;
+	
+	@Autowired
+	private ServletContext application;
+	
+	@PostConstruct
+	public void init() {
+		application.setAttribute("bucketUrl", "https://bucket0503-982hb978eh.s3.ap-northeast-2.amazonaws.com/board");
+	}
 
 	@Bean
 	public S3Client s3client() {
