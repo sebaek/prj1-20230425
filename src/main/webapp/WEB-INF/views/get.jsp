@@ -33,8 +33,6 @@
 					<div class="mb-3">
 						<c:forEach items="${board.fileName }" var="fileName" >
 							<div class="mb-3">
-								<%-- http://localhost:8080/image/4122/slamdunk.jfif --%>
-								<%-- http://localhost:8080/image/게시물번호/fileName --%>
 								<c:set var="bucketUrl" value="https://bucket0503-982hb978eh.s3.ap-northeast-2.amazonaws.com/board" />
 								<img class="img-thumbnail img-fluid" src="${bucketUrl }/${board.id }/${fileName}" alt="" />
 							</div>
