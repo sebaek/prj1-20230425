@@ -22,20 +22,20 @@
 				<h1>회원 정보</h1>
 				<!-- .mb-3*4>label+input -->
 				<div class="mb-3">
-					<label for="">아이디</label>
-					<input type="text" value="${member.id }" readonly/>
+					<label class="form-label" for="">아이디</label>
+					<input class="form-control" type="text" value="${member.id }" readonly/>
 				</div>
 				<div class="mb-3">
-					<label for="">패스워드</label>
-					<input type="text" value="${member.password }" readonly/>
+					<label class="form-label" for="">패스워드</label>
+					<input class="form-control" type="text" value="${member.password }" readonly/>
 				</div>
 				<div class="mb-3">
-					<label for="">별명</label>
-					<input type="text" value="${member.nickName }" readonly/>
+					<label class="form-label" for="">별명</label>
+					<input class="form-control" type="text" value="${member.nickName }" readonly/>
 				</div>
 				<div class="mb-3">
-					<label for="">이메일</label>
-					<input type="text" value="${member.email }" readonly />
+					<label class="form-label" for="">이메일</label>
+					<input class="form-control" type="text" value="${member.email }" readonly />
 				</div>
 			
 			</div>
