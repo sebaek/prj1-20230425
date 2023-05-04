@@ -34,6 +34,11 @@ public class MemberController {
 			return "redirect:/member/signup";
 		}
 	}
+	
+	@GetMapping("list")
+	public void list() {
+		
+	}
 }
 
 

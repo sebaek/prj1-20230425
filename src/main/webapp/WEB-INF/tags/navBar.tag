@@ -18,6 +18,12 @@
 				<li class="nav-item">
 					<a class="nav-link ${current eq 'add' ? 'active' : '' }" href="/add">글작성</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link ${current eq 'signup' ? 'active' : '' }" href="/member/signup">회원가입</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ${current eq 'memberList' ? 'active' : '' }" href="/member/list">회원목록</a>
+				</li>
 			</ul>
 			<form action="/list" class="d-flex" role="search">
 				
