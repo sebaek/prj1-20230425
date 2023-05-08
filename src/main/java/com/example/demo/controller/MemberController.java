@@ -79,9 +79,16 @@ public class MemberController {
 	
 	// 2.
 	@PostMapping("modify")
-	public void modifyProcess(Member member, RedirectAttributes rttr) {
+	public String modifyProcess(Member member, RedirectAttributes rttr) {
 		boolean ok = service.modify(member);
 		
+		if (ok) {
+			rttr.addFlashAttribute("message", "회원 정보가 수정되었습니다.");
+			return "redirect:/member/info?id=" + member.getId();
+		} else {
+			rttr.addFlashAttribute("message", "회원 정보 수정시 문제가 발생하였습니다.");
+			return "redirect:/member/modify?id=" + member.getId();
+		}
 		
 	}
 }
