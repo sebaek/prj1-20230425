@@ -79,6 +79,11 @@ public class MemberController {
 	
 	// 2.
 //	@PostMapping("modify")
+	public void modifyProcess(Member member, RedirectAttributes rttr) {
+		boolean ok = service.modify(member);
+		
+		
+	}
 }
 
 

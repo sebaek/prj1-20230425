@@ -34,6 +34,16 @@ public interface MemberMapper {
 			WHERE id = #{id}
 			""")
 	Integer deleteById(String id);
+
+	@Update("""
+			UPDATE Member
+			SET password = #{password},
+			    nickName = #{nickName},
+			    email = #{email}
+			WHERE
+				id = #{id}
+			""")
+	Integer update(Member member);
 }
 
 
