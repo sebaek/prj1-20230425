@@ -31,19 +31,17 @@ public class MemberService {
 		return mapper.selectById(id);
 	}
 
-	public void remove(Member member) {
+	public boolean remove(Member member) {
 		Member oldMember = mapper.selectById(member.getId());
+		int cnt = 0;
 		
 		if (oldMember.getPassword().equals(member.getPassword())) {
 			// 암호가 같으면?
 			
-			mapper.deleteById(member.getId());
-		} else {
-			// 암호가 같지 않으면?
-			
+			cnt = mapper.deleteById(member.getId());
 		}
 		
-		
+		return cnt == 1;
 	}
 }
 

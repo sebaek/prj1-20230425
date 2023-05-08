@@ -54,9 +54,17 @@ public class MemberController {
 	}
 	
 	@PostMapping("remove")
-	public void remove(Member member) {
+	public String remove(Member member, RedirectAttributes rttr) {
 		
-		service.remove(member);
+		boolean ok = service.remove(member);
+		
+		if (ok) {
+			rttr.addFlashAttribute("message", "회원 탈퇴하였습니다.");
+			return "redirect:/list";
+		} else {
+			rttr.addFlashAttribute("message", "회원 탈퇴시 문제가 발생하였습니다.");
+			return "redirect:/member/info?id=" + member.getId(); 
+		}
 	}
 }
 
