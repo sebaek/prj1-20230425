@@ -13,7 +13,7 @@
 <body>
 
 
-	<form method="post">
+	<form action="/member/modify" method="post">
 		<div>
 			아이디
 			<input type="text" name="id" value="${member.id }" readonly />
