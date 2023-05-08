@@ -55,7 +55,7 @@
 				<div class="modal-body">
 					<form id="removeForm" action="/member/remove" method="post">
 						<input type="hidden" name="id" value="${member.id }" />
-						<label for="passwordInput1">암호</label>
+						<label for="passwordInput1" class="form-label">암호</label>
 						<input id="passwordInput1" type="password" name="password" class="form-control" />
 					</form>
 				</div>
