@@ -30,6 +30,10 @@ public class MemberService {
 	public Member get(String id) {
 		return mapper.selectById(id);
 	}
+
+	public void remove(String id) {
+		mapper.deleteById(id);
+	}
 }
 
 
