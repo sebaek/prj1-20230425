@@ -69,10 +69,16 @@ public class MemberController {
 	
 	// 1.
 	@GetMapping("modify")
+	public void modifyForm(String id, Model model) {
+		Member member = service.get(id);
+		model.addAttribute("member", member);
+//		model.addAttribute(service.get(id));
+		
+	}
 	
 	
 	// 2.
-	@PostMapping("modify")
+//	@PostMapping("modify")
 }
 
 
