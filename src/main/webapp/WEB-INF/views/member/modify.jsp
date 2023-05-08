@@ -28,7 +28,7 @@
 					</div>
 					<div class="mb-3">
 						<label class="form-label" for="inputPassword"> 패스워드 </label>
-						<input id="inputPassword" class="form-control" type="text" name="password" value="${member.password }" />
+						<input id="inputPassword" class="form-control" type="text" name="password" value="" />
 					</div>
 					<div class="mb-3">
 						<label class="form-label" for="inputNickName"> 별명 </label>

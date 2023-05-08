@@ -54,11 +54,21 @@ public class MemberService {
 	}
 
 	public boolean modify(Member member, String oldPassword) {
+		
+		// 패스워드를 바꾸기 위해 입력했다면...
+		if (!member.getPassword().isBlank()) {
+			
+			// 입력된 패스워드를 암호화
+			String plain = member.getPassword();
+			member.setPassword(passwordEncoder.encode(plain));
+		}
+		
 		Member oldMember = mapper.selectById(member.getId());
 
 		int cnt = 0;
-		if (oldMember.getPassword().equals(oldPassword)) {
-			
+		
+		if (passwordEncoder.matches(oldPassword, oldMember.getPassword())) {
+			// 기존 암호와 같으면
 			cnt = mapper.update(member);
 		}
 		
