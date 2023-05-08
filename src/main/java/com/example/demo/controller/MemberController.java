@@ -66,6 +66,13 @@ public class MemberController {
 			return "redirect:/member/info?id=" + member.getId(); 
 		}
 	}
+	
+	// 1.
+	@GetMapping("modify")
+	
+	
+	// 2.
+	@PostMapping("modify")
 }
 
 
