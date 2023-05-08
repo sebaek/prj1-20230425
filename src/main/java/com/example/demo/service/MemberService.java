@@ -44,7 +44,7 @@ public class MemberService {
 		Member oldMember = mapper.selectById(member.getId());
 		int cnt = 0;
 		
-		if (oldMember.getPassword().equals(member.getPassword())) {
+		if (passwordEncoder.matches(member.getPassword(), oldMember.getPassword())) {
 			// 암호가 같으면?
 			
 			cnt = mapper.deleteById(member.getId());
