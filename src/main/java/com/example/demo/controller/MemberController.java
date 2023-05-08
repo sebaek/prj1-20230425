@@ -79,8 +79,8 @@ public class MemberController {
 	
 	// 2.
 	@PostMapping("modify")
-	public String modifyProcess(Member member, RedirectAttributes rttr) {
-		boolean ok = service.modify(member);
+	public String modifyProcess(Member member, String oldPassword, RedirectAttributes rttr) {
+		boolean ok = service.modify(member, oldPassword);
 		
 		if (ok) {
 			rttr.addFlashAttribute("message", "회원 정보가 수정되었습니다.");
