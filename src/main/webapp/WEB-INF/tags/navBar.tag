@@ -23,9 +23,11 @@
 					</li>
 				</sec:authorize>
 
-				<li class="nav-item">
-					<a class="nav-link ${current eq 'signup' ? 'active' : '' }" href="/member/signup">회원가입</a>
-				</li>
+				<sec:authorize access="isAnonymous()">
+					<li class="nav-item">
+						<a class="nav-link ${current eq 'signup' ? 'active' : '' }" href="/member/signup">회원가입</a>
+					</li>
+				</sec:authorize>
 
 				<sec:authorize access="isAuthenticated()">
 					<li class="nav-item">
