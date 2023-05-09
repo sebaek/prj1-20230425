@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.context.annotation.*;
+import org.springframework.security.config.*;
 import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.crypto.bcrypt.*;
 import org.springframework.security.crypto.password.*;
@@ -40,6 +41,9 @@ public class CustomConfiguration {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.csrf().disable();
+		
+		http.formLogin(Customizer.withDefaults());
+		
 		return http.build();
 	}
 	
