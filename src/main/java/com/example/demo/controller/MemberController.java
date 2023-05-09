@@ -32,6 +32,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("signup")
+	@PreAuthorize("isAnonymous()")
 	public String signupProcess(Member member, RedirectAttributes rttr) {
 	
 		try {
@@ -54,6 +55,7 @@ public class MemberController {
 	
 	// 경로: /member/info?id=asdf
 	@GetMapping("info")
+	@PreAuthorize("isAuthenticated()")
 	public void info(String id, Model model) {
 		
 		Member member = service.get(id);
@@ -62,6 +64,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("remove")
+	@PreAuthorize("isAuthenticated()")
 	public String remove(Member member, RedirectAttributes rttr) {
 		
 		boolean ok = service.remove(member);
@@ -77,6 +80,7 @@ public class MemberController {
 	
 	// 1.
 	@GetMapping("modify")
+	@PreAuthorize("isAuthenticated()")
 	public void modifyForm(String id, Model model) {
 		Member member = service.get(id);
 		model.addAttribute("member", member);
@@ -87,6 +91,7 @@ public class MemberController {
 	
 	// 2.
 	@PostMapping("modify")
+	@PreAuthorize("isAuthenticated()")
 	public String modifyProcess(Member member, String oldPassword, RedirectAttributes rttr) {
 		boolean ok = service.modify(member, oldPassword);
 		

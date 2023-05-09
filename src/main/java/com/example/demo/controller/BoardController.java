@@ -55,6 +55,7 @@ public class BoardController {
 	}
 
 	@GetMapping("/modify/{id}")
+	@PreAuthorize("isAuthenticated()")
 	public String modifyForm(@PathVariable("id") Integer id, Model model) {
 		model.addAttribute("board", service.getBoard(id));
 		return "modify";
@@ -62,6 +63,7 @@ public class BoardController {
 
 //	@RequestMapping(value = "/modify/{id}", method = RequestMethod.POST)
 	@PostMapping("/modify/{id}")
+	@PreAuthorize("isAuthenticated()")
 	public String modifyProcess(Board board,
 			@RequestParam(value = "files", required = false) MultipartFile[] addFiles,
 			@RequestParam(value = "removeFiles", required = false) List<String> removeFileNames,
@@ -83,6 +85,7 @@ public class BoardController {
 	}
 
 	@PostMapping("remove")
+	@PreAuthorize("isAuthenticated()")
 	public String remove(Integer id, RedirectAttributes rttr) {
 		boolean ok = service.remove(id);
 		if (ok) {
@@ -105,6 +108,7 @@ public class BoardController {
 	}
 
 	@PostMapping("add")
+	@PreAuthorize("isAuthenticated()")
 	public String addProcess(
 			@RequestParam("files") MultipartFile[] files,
 			Board board, RedirectAttributes rttr) throws Exception {
