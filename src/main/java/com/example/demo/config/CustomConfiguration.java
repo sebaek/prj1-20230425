@@ -2,7 +2,6 @@ package com.example.demo.config;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.context.annotation.*;
-import org.springframework.security.config.*;
 import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.crypto.bcrypt.*;
 import org.springframework.security.crypto.password.*;
@@ -44,6 +43,7 @@ public class CustomConfiguration {
 		
 //		http.formLogin(Customizer.withDefaults());
 		http.formLogin().loginPage("/member/login");
+		http.logout().logoutUrl("/member/logout");
 		
 		return http.build();
 	}

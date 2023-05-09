@@ -1,6 +1,7 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ attribute name="current"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
 	<div class="container-lg">
@@ -47,6 +48,18 @@
 		</div>
 	</div>
 </nav>
+
+<div>
+	<sec:authentication property="principal"/>
+</div>
+
+
+
+
+
+
+
+
 
 
 
