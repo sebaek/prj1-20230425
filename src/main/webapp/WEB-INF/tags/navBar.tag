@@ -24,6 +24,9 @@
 				<li class="nav-item">
 					<a class="nav-link ${current eq 'memberList' ? 'active' : '' }" href="/member/list">회원목록</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link ${current eq 'login' ? 'active' : '' }" href="/member/login">로그인</a>
+				</li>
 			</ul>
 			<form action="/list" class="d-flex" role="search">
 				
