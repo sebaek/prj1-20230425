@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.security.access.prepost.*;
+import org.springframework.security.core.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
@@ -111,10 +112,12 @@ public class BoardController {
 	@PreAuthorize("isAuthenticated()")
 	public String addProcess(
 			@RequestParam("files") MultipartFile[] files,
-			Board board, RedirectAttributes rttr) throws Exception {
+			Board board, RedirectAttributes rttr,
+			Authentication authentication) throws Exception {
 		// 새 게시물 db에 추가
 		// 1.
 		// 2.
+		board.setWriter(authentication.getName());
 		boolean ok = service.addBoard(board, files);
 		// 3.
 		// 4.
