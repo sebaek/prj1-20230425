@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.context.annotation.*;
+import org.springframework.security.config.annotation.method.configuration.*;
 import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.crypto.bcrypt.*;
 import org.springframework.security.crypto.password.*;
@@ -15,6 +16,7 @@ import software.amazon.awssdk.regions.*;
 import software.amazon.awssdk.services.s3.*;
 
 @Configuration
+@EnableMethodSecurity
 public class CustomConfiguration {
 
 	@Value("${aws.accessKeyId}")
@@ -50,15 +52,15 @@ public class CustomConfiguration {
 //		http.authorizeHttpRequests().requestMatchers("/member/signup").anonymous();
 //		http.authorizeHttpRequests().requestMatchers("/**").permitAll();
 
-		http.authorizeHttpRequests()
-				.requestMatchers("/add")
-				.access(new WebExpressionAuthorizationManager("isAuthenticated()"));
-		http.authorizeHttpRequests()
-				.requestMatchers("/member/signup")
-				.access(new WebExpressionAuthorizationManager("isAnonymous()"));
-		http.authorizeHttpRequests()
-				.requestMatchers("/**")
-				.access(new WebExpressionAuthorizationManager("permitAll"));
+//		http.authorizeHttpRequests()
+//				.requestMatchers("/add")
+//				.access(new WebExpressionAuthorizationManager("isAuthenticated()"));
+//		http.authorizeHttpRequests()
+//				.requestMatchers("/member/signup")
+//				.access(new WebExpressionAuthorizationManager("isAnonymous()"));
+//		http.authorizeHttpRequests()
+//				.requestMatchers("/**")
+//				.access(new WebExpressionAuthorizationManager("permitAll"));
 
 		return http.build();
 	}
