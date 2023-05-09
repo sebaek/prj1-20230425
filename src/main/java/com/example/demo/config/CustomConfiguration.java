@@ -42,7 +42,8 @@ public class CustomConfiguration {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		
-		http.formLogin(Customizer.withDefaults());
+//		http.formLogin(Customizer.withDefaults());
+		http.formLogin().loginPage("/member/login");
 		
 		return http.build();
 	}
