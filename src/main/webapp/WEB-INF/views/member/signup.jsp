@@ -33,6 +33,17 @@
 					<div class="mb-3">
 						<label for="inputPasswordCheck" class="form-label">패스워드 확인</label>
 						<input id="inputPasswordCheck" type="password" class="form-control" />
+						
+						<div id="passwordSuccessText" class="d-none form-text text-primary">
+							<i class="fa-solid fa-check"></i>
+							패스워드가 일치 합니다.
+						</div>
+						
+						<div id="passwordFailText" class="d-none form-text text-danger">
+							<i class="fa-solid fa-triangle-exclamation"></i>
+							패스워드가 일치하지 않습니다.
+						</div>
+						
 					</div>
 					
 					<div class="mb-3">
@@ -71,12 +82,16 @@
 				// submit 버튼 활성화
 				$("#signupSubmit").removeClass("disabled");
 				// 패스워드가 같다는 메세지 출력
+				$("#passwordSuccessText").removeClass("d-none");
+				$("#passwordFailText").addClass("d-none");
 				
 			} else {
 				// 그렇지 않으면
 				// submit 버튼 비활성화
 				$("#signupSubmit").addClass("disabled");
 				// 패스워드가 다르다는 메세지 출력
+				$("#passwordFailText").removeClass("d-none");
+				$("#passwordSuccessText").addClass("d-none");
 				
 			}
 			
