@@ -59,7 +59,7 @@
 				</div>
 				<div class="modal-body">
 					<label for="inputOldPassword" class="form-label">이전 암호</label>
-					<input form="modifyForm" id="inputOldPassword" class="form-control" type="text" name="oldPassword" />
+					<input form="modifyForm" id="inputOldPassword" class="form-control" type="password" name="oldPassword" />
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
