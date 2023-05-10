@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import java.io.*;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
@@ -163,4 +162,19 @@ public class BoardService {
 		return Map.of("pageInfo", pageInfo,
 				"boardList", list);
 	}
+
+	public void removeByWriter(String writer) {
+		List<Integer> idList = mapper.selectIdByWriter(writer);
+		
+		for (Integer id : idList) {
+			remove(id);
+		}
+		
+	}
 }
+
+
+
+
+
+
