@@ -9,8 +9,19 @@ $("#likeIcon").click(function() {
 		contentType: "application/json",
 		data: JSON.stringify(data),
 		
-		//success:,
+		success: function(data) {
+			if (data.like) {
+				// 꽉찬 하트
+				$("#likeIcon").html(`<i class="fa-solid fa-heart"></i>`);
+			} else {
+				// 빈 하트
+				$("#likeIcon").html(`<i class="fa-regular fa-heart"></i>`);
+			}
+		}
 		//error:,
 		//complete:,
 	});
 });
+
+
+

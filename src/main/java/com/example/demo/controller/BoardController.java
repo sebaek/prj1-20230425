@@ -135,10 +135,11 @@ public class BoardController {
 	
 	@PostMapping("/like")
 	@ResponseBody
-	public Map<String, Object> like(@RequestBody Like like) {
-		System.out.println(like);
-		
-		return null;
+	public Map<String, Object> like(
+			@RequestBody Like like,
+			Authentication authentication) {
+
+		return service.like(like, authentication);
 	}
 }
 
