@@ -81,6 +81,12 @@ public class MemberService {
 		
 		return cnt == 1;
 	}
+
+	public Map<String, Object> checkId(String id) {
+		Member member = mapper.selectById(id);
+		
+		return Map.of("available", member == null);
+	}
 }
 
 

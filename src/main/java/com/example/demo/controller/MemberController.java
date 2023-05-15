@@ -12,7 +12,6 @@ import org.springframework.web.servlet.mvc.support.*;
 import com.example.demo.domain.*;
 import com.example.demo.service.*;
 
-import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
 @Controller
@@ -21,6 +20,13 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService service;
+	
+	@GetMapping("checkId/{id}")
+	@ResponseBody
+	public Map<String, Object> checkId(@PathVariable("id") String id) {
+		
+		return Map.of("available", false);
+	}
 
 	@GetMapping("signup")
 	@PreAuthorize("isAnonymous()")
