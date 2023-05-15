@@ -66,7 +66,7 @@ $("#inputPassword, #inputPasswordCheck").keyup(function() {
 	if (pw1 === pw2) {
 		// 같으면
 		// submit 버튼 활성화
-		$("#signupSubmit").removeClass("disabled");
+		$("#signupSubmit").removeAttr("disabled");
 		// 패스워드가 같다는 메세지 출력
 		$("#passwordSuccessText").removeClass("d-none");
 		$("#passwordFailText").addClass("d-none");
@@ -74,7 +74,7 @@ $("#inputPassword, #inputPasswordCheck").keyup(function() {
 	} else {
 		// 그렇지 않으면
 		// submit 버튼 비활성화
-		$("#signupSubmit").addClass("disabled");
+		$("#signupSubmit").attr("disabled", "");
 		// 패스워드가 다르다는 메세지 출력
 		$("#passwordFailText").removeClass("d-none");
 		$("#passwordSuccessText").addClass("d-none");
