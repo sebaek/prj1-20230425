@@ -25,7 +25,7 @@ public class MemberController {
 	@ResponseBody
 	public Map<String, Object> checkId(@PathVariable("id") String id) {
 		
-		return Map.of("available", false);
+		return service.checkId(id);
 	}
 
 	@GetMapping("signup")
