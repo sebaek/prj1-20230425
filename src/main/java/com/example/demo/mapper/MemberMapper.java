@@ -53,6 +53,13 @@ public interface MemberMapper {
 			</script>
 			""")
 	Integer update(Member member);
+
+	@Select("""
+			SELECT *
+			FROM Member
+			WHERE nickName = #{nickName}
+			""")
+	Member selectByNickName(String nickName);
 }
 
 

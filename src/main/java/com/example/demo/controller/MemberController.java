@@ -21,6 +21,12 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	
+	@GetMapping("checkNickName/{nickName}")
+	@ResponseBody
+	public Map<String, Object> checkNickName(@PathVariable("nickName") String nickName) {
+		return service.checkNickName(nickName);
+	}
+	
 	@GetMapping("checkId/{id}")
 	@ResponseBody
 	public Map<String, Object> checkId(@PathVariable("id") String id) {

@@ -55,6 +55,11 @@
 					<div class="mb-3">
 						<label for="inputNickName" class="form-label">별명</label>
 						<input id="inputNickName" type="text" class="form-control" name="nickName" value="${member.nickName }" />
+						
+						<div id="availableNickNameMessage">사용 가능한 별명입니다.</div>
+						<div id="notAvailableNickNameMessage">사용 불가능한 별명입니다.</div>
+						
+						<button type="button" id="checkNickNameBtn">중복확인</button>
 					</div>
 					<div class="mb-3">
 						<label for="inputEmail" class="form-label">이메일</label>
