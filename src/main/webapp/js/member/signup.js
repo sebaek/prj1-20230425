@@ -11,6 +11,39 @@ function enableSubmit() {
 	}
 }
 
+// input 아이디에 키보드 입력 발생시
+$("#inputId").keyup(function() {
+	// 아이디 중복확인 다시
+	checkId = false;
+	$("#availableIdMessage").addClass("d-none")
+	$("#notAvailableIdMessage").addClass("d-none")
+	
+	// submit 버튼 비활성화
+	enableSubmit();
+});
+
+// nickName 인풋에 키보드 입력 발생시
+$("#inputNickName").keyup(function() {
+	// 별명 중복확인 다시
+	checkNickName = false;
+	$("#availableNickNameMessage").addClass("d-none")
+	$("#notAvailableNickNameMessage").addClass("d-none")
+	
+	// submit 버튼 비활성화
+	enableSubmit();
+})
+
+// email 인풋에 키보드 입력 발생시
+$("#inputEmail").keyup(function() {
+	// 이메일 중복확인 다시
+	checkEmail = false;
+	$("#availableEmailMessage").addClass("d-none")
+	$("#notAvailableEmailMessage").addClass("d-none")
+	
+	// submit 버튼 비활성화
+	enableSubmit();
+})
+
 
 // 이메일 중복확인 버튼이 클릭되면
 $("#checkEmailBtn").click(function() {

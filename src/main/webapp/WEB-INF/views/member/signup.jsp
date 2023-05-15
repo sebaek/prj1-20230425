@@ -25,8 +25,8 @@
 						<label for="inputId" class="form-label">아이디</label>
 						<input id="inputId" type="text" class="form-control" name="id" value="${member.id }" />
 						
-						<div id="availableIdMessage">사용가능한 ID입니다.</div>
-						<div id="notAvailableIdMessage">사용 불가능한 ID입니다.</div>
+						<div class="d-none" id="availableIdMessage">사용가능한 ID입니다.</div>
+						<div class="d-none" id="notAvailableIdMessage">사용 불가능한 ID입니다.</div>
 						
 						<button type="button" id="checkIdBtn">중복확인</button>
 						
@@ -56,8 +56,8 @@
 						<label for="inputNickName" class="form-label">별명</label>
 						<input id="inputNickName" type="text" class="form-control" name="nickName" value="${member.nickName }" />
 						
-						<div id="availableNickNameMessage">사용 가능한 별명입니다.</div>
-						<div id="notAvailableNickNameMessage">사용 불가능한 별명입니다.</div>
+						<div class="d-none" id="availableNickNameMessage">사용 가능한 별명입니다.</div>
+						<div class="d-none" id="notAvailableNickNameMessage">사용 불가능한 별명입니다.</div>
 						
 						<button type="button" id="checkNickNameBtn">중복확인</button>
 					</div>
@@ -65,8 +65,8 @@
 						<label for="inputEmail" class="form-label">이메일</label>
 						<input id="inputEmail" type="email" class="form-control" name="email" value="${member.email }"/>
 						
-						<div id="availableEmailMessage">사용 가능한 이메일입니다.</div>
-						<div id="notAvailableEmailMessage">사용 불가능한 이메일입니다.</div>
+						<div class="d-none" id="availableEmailMessage">사용 가능한 이메일입니다.</div>
+						<div class="d-none" id="notAvailableEmailMessage">사용 불가능한 이메일입니다.</div>
 						<button type="button" id="checkEmailBtn">중복확인</button>
 					</div>
 					<div class="mb-3">
