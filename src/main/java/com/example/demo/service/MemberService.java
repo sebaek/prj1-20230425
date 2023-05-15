@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.core.*;
 import org.springframework.security.crypto.password.*;
 import org.springframework.stereotype.*;
 import org.springframework.transaction.annotation.*;
@@ -88,15 +89,30 @@ public class MemberService {
 		return Map.of("available", member == null);
 	}
 
-	public Map<String, Object> checkNickName(String nickName) {
+	public Map<String, Object> checkNickName(String nickName, Authentication authentication) {
 		Member member = mapper.selectByNickName(nickName);
-		return Map.of("available", member == null);
+		if (authentication != null) {
+			Member oldMember = mapper.selectById(authentication.getName());
+			
+			return Map.of("available", member == null || oldMember.getNickName().equals(nickName));
+		} else {
+			return Map.of("available", member == null);
+		}
+		
 	}
 
-	public Map<String, Object> checkEmail(String email) {
+	public Map<String, Object> checkEmail(String email, Authentication authentication) {
 		Member member = mapper.selectByEmail(email);
 		
-		return Map.of("available", member == null);
+		if (authentication != null) {
+			Member oldMember = mapper.selectById(authentication.getName());
+			
+			return Map.of("available", member == null || oldMember.getEmail().equals(email));
+		} else {
+			return Map.of("available", member == null);
+			
+		}
+		
 	}
 }
 
