@@ -60,6 +60,13 @@ public interface MemberMapper {
 			WHERE nickName = #{nickName}
 			""")
 	Member selectByNickName(String nickName);
+
+	@Select("""
+			SELECT * 
+			FROM Member
+			WHERE email = #{email}
+			""")
+	Member selectByEmail(String email);
 }
 
 

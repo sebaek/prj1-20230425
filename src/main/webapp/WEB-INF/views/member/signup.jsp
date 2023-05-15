@@ -64,6 +64,10 @@
 					<div class="mb-3">
 						<label for="inputEmail" class="form-label">이메일</label>
 						<input id="inputEmail" type="email" class="form-control" name="email" value="${member.email }"/>
+						
+						<div id="availableEmailMessage">사용 가능한 이메일입니다.</div>
+						<div id="notAvailableEmailMessage">사용 불가능한 이메일입니다.</div>
+						<button type="button" id="checkEmailBtn">중복확인</button>
 					</div>
 					<div class="mb-3">
 						<input id="signupSubmit" type="submit" class="btn btn-primary disabled" value="가입" />

@@ -1,3 +1,20 @@
+// 이메일 중복확인 버튼이 클릭되면
+$("#checkEmailBtn").click(function() {
+	const email = $("#inputEmail").val();
+	$.ajax("/member/checkEmail/" + email, {
+		success: function(data) {
+			
+			if (data.available) {
+				$("#availableEmailMessage").removeClass("d-none");
+				$("#notAvailableEmailMessage").addClass("d-none");
+			} else {
+				$("#availableEmailMessage").addClass("d-none");
+				$("#notAvailableEmailMessage").removeClass("d-none");
+			}
+		}
+	});
+});
+
 // 별명 중복확인 버튼이 클릭되면
 $("#checkNickNameBtn").click(function() {
 	const nickName = $("#inputNickName").val();

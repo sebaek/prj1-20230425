@@ -92,6 +92,12 @@ public class MemberService {
 		Member member = mapper.selectByNickName(nickName);
 		return Map.of("available", member == null);
 	}
+
+	public Map<String, Object> checkEmail(String email) {
+		Member member = mapper.selectByEmail(email);
+		
+		return Map.of("available", member == null);
+	}
 }
 
 
