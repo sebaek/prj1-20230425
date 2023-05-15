@@ -1,5 +1,5 @@
-let checkEmail = false;
-let checkNickName = false;
+let checkEmail = true;
+let checkNickName = true;
 let checkPassword = true;
 
 function enableSubmit() {
@@ -9,6 +9,20 @@ function enableSubmit() {
 		$("#modifyButton").attr("disabled", "");
 	}
 }
+
+$("#inputEmail").keyup(function() {
+	checkEmail = false;
+	$("#availableEmailMessage").addClass("d-none");
+	$("#notAvailableEmailMessage").addClass("d-none");
+	enableSubmit();
+});
+
+$("#inputNickName").keyup(function() {
+	checkNickName = false;
+	$("#availableNickNameMessage").addClass("d-none");
+	$("#notAvailableNickNameMessage").addClass("d-none");
+	enableSubmit();
+});
 
 // 이메일 중복확인 버튼이 클릭되면
 $("#checkEmailBtn").click(function() {
