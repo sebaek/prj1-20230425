@@ -189,6 +189,9 @@ public class BoardService {
 			result.put("like", true);
 		}
 		
+		Integer count = likeMapper.countByBoardId(like.getBoardId());
+		result.put("count", count);
+		
 		return result;
 	}
 }
