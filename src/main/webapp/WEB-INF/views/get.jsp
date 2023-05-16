@@ -42,7 +42,13 @@
 
 					<h1>
 						<span id="likeIcon">
-							<i class="fa-regular fa-heart"></i>
+							<c:if test="${board.liked }">
+								<i class="fa-solid fa-heart"></i>
+							</c:if>
+							
+							<c:if test="${not board.liked }">
+								<i class="fa-regular fa-heart"></i>
+							</c:if>
 						</span>
 						<span id="likeNumber">
 							${board.likeCount }
