@@ -45,7 +45,7 @@
 							<i class="fa-regular fa-heart"></i>
 						</span>
 						<span id="likeNumber">
-							<%-- ${board.like } --%>
+							${board.likeCount }
 						</span>
 					</h1>
 				</div>

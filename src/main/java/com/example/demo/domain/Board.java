@@ -15,6 +15,7 @@ public class Board {
 	private List<String> fileName;
 	
 	private Integer fileCount;
+	private Integer likeCount;
 }
 
 
