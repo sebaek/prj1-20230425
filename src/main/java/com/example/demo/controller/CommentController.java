@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.http.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,12 +42,12 @@ public class CommentController {
 	}
 	
 	@PostMapping("add")
-	@ResponseBody
-	public String add(@RequestBody Comment comment) {
+//	@ResponseBody
+	public ResponseEntity<Map<String, Object>> add(@RequestBody Comment comment) {
 		
-		service.add(comment);
+		Map<String, Object> res = service.add(comment);
 		
-		return "ok";
+		return ResponseEntity.ok().body(res);
 	}
 	
 	@GetMapping("list")

@@ -9,8 +9,10 @@ $("#sendCommentBtn").click(function() {
 		method: "post",
 		contentType: "application/json",
 		data: JSON.stringify(data),
-		complete: function() {
+		complete: function(jqXHR) {
 			listComment();
+			$(".toast-body").text(jqXHR.responseJSON.message);
+			toast.show();
 		}
 	});
 })

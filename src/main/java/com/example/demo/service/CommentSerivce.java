@@ -21,10 +21,19 @@ public class CommentSerivce {
 		return mapper.selectAllByBoardId(boardId);
 	}
 
-	public void add(Comment comment) {
+	public Map<String, Object> add(Comment comment) {
 		comment.setMemberId("user9");
-		mapper.insert(comment);
 		
+		var res = new HashMap<String, Object>();
+		
+		int cnt = mapper.insert(comment);
+		if (cnt == 1) {
+			res.put("message", "댓글이 등록되었습니다.");
+		} else {
+			res.put("message", "댓글이 등록되지 않았습니다.");
+		}
+		
+		return res;
 	}
 
 	public void remove(Integer id) {
