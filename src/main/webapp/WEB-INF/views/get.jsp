@@ -100,10 +100,13 @@
 
 
 					<div id="commentContainer">
-						<div>댓글 입력창 : 전송</div>
-						<div>댓글1 내용 : 누가 : 언제</div>
-						<div>댓글2 내용 : 누가 : 언제</div>
-						<div>댓글3 내용 : 누가 : 언제</div>
+						
+						<div id="addCommentContainer">댓글 입력창 : 전송</div>
+						<div id="commentListContainer">
+							<div>댓글1 내용 : 누가 : 언제</div>
+							<div>댓글2 내용 : 누가 : 언제</div>
+							<div>댓글3 내용 : 누가 : 언제</div>
+						</div>
 					</div>
 
 				</div>
