@@ -26,12 +26,23 @@ function listComment() {
 				// console.log(comment);
 				$("#commentListContainer").append(`
 					<div>
-						${comment.content} 
+						<button 
+							id="commentDeleteBtn${comment.id}" 
+							class="commentDeleteButton" 
+							data-comment-id="${comment.id}">삭제</button>
+						: ${comment.content} 
 						: ${comment.memberId} 
 						: ${comment.inserted}
 					</div>
 				`);
-			}
+			};
+			
+			$(".commentDeleteButton").click(function() {
+				const commentId = $(this).attr("data-comment-id");
+				$.ajax("/comment/id/" + commentId, {
+					method: "delete"
+				});
+			})
 		}
 	});
 	
