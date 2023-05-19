@@ -36,9 +36,18 @@ public class CommentSerivce {
 		return res;
 	}
 
-	public void remove(Integer id) {
-		mapper.deleteById(id);
+	public Map<String, Object> remove(Integer id) {
+		int cnt = mapper.deleteById(id);
 		
+		var res = new HashMap<String, Object>();
+		
+		if (cnt == 1) {
+			res.put("message", "댓글이 삭제되었습니다.");
+		} else {
+			res.put("message", "댓글이 삭제 되지 않았습니다.");
+		}
+		
+		return res;
 	}
 
 	public Comment get(Integer id) {

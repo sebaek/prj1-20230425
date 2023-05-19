@@ -35,10 +35,10 @@ public class CommentController {
 //	@RequestMapping(path = "id/{id}", method = RequestMethod.DELETE)
 	@DeleteMapping("id/{id}")
 	@ResponseBody
-	public String remove(@PathVariable("id") Integer id) {
-		service.remove(id);
+	public ResponseEntity<Map<String, Object>> remove(@PathVariable("id") Integer id) {
+		Map<String, Object> res = service.remove(id);
 		
-		return "ok";
+		return ResponseEntity.ok().body(res);
 	}
 	
 	@PostMapping("add")

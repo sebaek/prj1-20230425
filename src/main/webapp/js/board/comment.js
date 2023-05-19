@@ -77,8 +77,10 @@ function listComment() {
 				const commentId = $(this).attr("data-comment-id");
 				$.ajax("/comment/id/" + commentId, {
 					method: "delete",
-					complete: function() {
+					complete: function(jqXHR) {
 						listComment();
+						$(".toast-body").text(jqXHR.responseJSON.message);
+						toast.show();
 					}
 				});
 			})
