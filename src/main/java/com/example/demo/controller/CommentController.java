@@ -17,6 +17,15 @@ public class CommentController {
 	@Autowired
 	private CommentSerivce service;
 	
+//	@RequestMapping(path = "id/{id}", method = RequestMethod.DELETE)
+	@DeleteMapping("id/{id}")
+	@ResponseBody
+	public String remove(@PathVariable("id") Integer id) {
+		service.remove(id);
+		
+		return "ok";
+	}
+	
 	@PostMapping("add")
 	@ResponseBody
 	public String add(@RequestBody Comment comment) {

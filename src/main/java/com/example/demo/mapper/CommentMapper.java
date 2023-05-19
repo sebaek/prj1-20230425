@@ -22,6 +22,12 @@ public interface CommentMapper {
 			VALUES (#{boardId}, #{content}, #{memberId})
 			""")
 	Integer insert(Comment comment);
+
+	@Delete("""
+			DELETE FROM Comment
+			WHERE id = #{id}
+			""")
+	Integer deleteById(Integer id);
 	
 }
 

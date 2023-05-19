@@ -27,6 +27,11 @@ public class CommentSerivce {
 		
 	}
 
+	public void remove(Integer id) {
+		mapper.deleteById(id);
+		
+	}
+
 }
 
 
