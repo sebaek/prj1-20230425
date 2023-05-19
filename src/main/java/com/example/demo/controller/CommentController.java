@@ -17,6 +17,14 @@ public class CommentController {
 	@Autowired
 	private CommentSerivce service;
 	
+	@PutMapping("update")
+	@ResponseBody
+	public String update(@RequestBody Comment comment) {
+		service.update(comment);
+		
+		return "OK";
+	}
+	
 	@GetMapping("id/{id}")
 	@ResponseBody
 	public Comment get(@PathVariable("id") Integer id) {

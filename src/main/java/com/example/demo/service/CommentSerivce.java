@@ -36,6 +36,10 @@ public class CommentSerivce {
 		return mapper.selectById(id);
 	}
 
+	public void update(Comment comment) {
+		mapper.update(comment);
+	}
+
 }
 
 
