@@ -32,6 +32,11 @@ public class CommentSerivce {
 		
 	}
 
+	public Comment get(Integer id) {
+		// TODO Auto-generated method stub
+		return mapper.selectById(id);
+	}
+
 }
 
 

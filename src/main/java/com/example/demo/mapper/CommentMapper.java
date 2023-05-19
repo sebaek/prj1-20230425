@@ -28,6 +28,13 @@ public interface CommentMapper {
 			WHERE id = #{id}
 			""")
 	Integer deleteById(Integer id);
+
+	@Select("""
+			SELECT *
+			FROM Comment
+			WHERE id = #{id}
+			""")
+	Comment selectById(Integer id);
 	
 }
 

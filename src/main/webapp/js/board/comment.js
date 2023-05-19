@@ -30,12 +30,26 @@ function listComment() {
 							id="commentDeleteBtn${comment.id}" 
 							class="commentDeleteButton" 
 							data-comment-id="${comment.id}">삭제</button>
+						:
+						<button
+							id="commentUpdateBtn${comment.id}"
+							class="commentUpdateButton"
+							data-comment-id="${comment.id}">수정</button>
 						: ${comment.content} 
 						: ${comment.memberId} 
 						: ${comment.inserted}
 					</div>
 				`);
 			};
+			$(".commentUpdateButton").click(function() {
+				const id = $(this).attr("data-comment-id");
+				$.ajax("/comment/id/" + id, {
+					success: function(data) {
+						$("#commentUpdateTextArea").val(data.content);
+					}
+				})
+			});
+			
 			
 			$(".commentDeleteButton").click(function() {
 				const commentId = $(this).attr("data-comment-id");

@@ -102,9 +102,17 @@
 					<div id="commentContainer">
 						
 						<div id="addCommentContainer">
+							<h6>입력</h6>
 							<textarea id="commentTextArea"></textarea>
 							<button id="sendCommentBtn">전송</button>
 						</div>
+						<div id="updateCommentContainer">
+							<h6>수정</h6>
+							<textarea id="commentUpdateTextArea"></textarea>
+							<button id="updateCommentBtn">수정</button>
+						</div>
+						
+						
 						<div id="commentListContainer">
 							<div>댓글1 내용 : 누가 : 언제</div>
 							<div>댓글2 내용 : 누가 : 언제</div>

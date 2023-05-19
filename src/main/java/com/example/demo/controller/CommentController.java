@@ -17,6 +17,12 @@ public class CommentController {
 	@Autowired
 	private CommentSerivce service;
 	
+	@GetMapping("id/{id}")
+	@ResponseBody
+	public Comment get(@PathVariable("id") Integer id) {
+		return service.get(id);
+	}
+	
 //	@RequestMapping(path = "id/{id}", method = RequestMethod.DELETE)
 	@DeleteMapping("id/{id}")
 	@ResponseBody
