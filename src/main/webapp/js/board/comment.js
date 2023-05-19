@@ -15,6 +15,20 @@ $("#sendCommentBtn").click(function() {
 	});
 })
 
+$("#updateCommentBtn").click(function() {
+	const commentId = $("#commentUpdateIdInput").val();
+	const content = $("#commentUpdateTextArea").val();
+	const data = {
+		id : commentId,
+		content : content
+	}
+	$.ajax("/comment/update", {
+		method: "put",
+		contentType: "application/json",
+		data: JSON.stringify(data)
+	})
+})
+
 function listComment() {
 	const boardId = $("#boardIdText").text().trim();
 	$.ajax("/comment/list?board=" + boardId, {
@@ -45,6 +59,7 @@ function listComment() {
 				const id = $(this).attr("data-comment-id");
 				$.ajax("/comment/id/" + id, {
 					success: function(data) {
+						$("#commentUpdateIdInput").val(data.id);
 						$("#commentUpdateTextArea").val(data.content);
 					}
 				})

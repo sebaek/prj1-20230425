@@ -108,6 +108,7 @@
 						</div>
 						<div id="updateCommentContainer">
 							<h6>수정</h6>
+							<input type="hidden" id="commentUpdateIdInput" />
 							<textarea id="commentUpdateTextArea"></textarea>
 							<button id="updateCommentBtn">수정</button>
 						</div>
