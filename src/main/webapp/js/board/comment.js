@@ -40,7 +40,10 @@ function listComment() {
 			$(".commentDeleteButton").click(function() {
 				const commentId = $(this).attr("data-comment-id");
 				$.ajax("/comment/id/" + commentId, {
-					method: "delete"
+					method: "delete",
+					complete: function() {
+						listComment();
+					}
 				});
 			})
 		}
