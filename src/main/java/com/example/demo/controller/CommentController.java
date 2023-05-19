@@ -17,6 +17,15 @@ public class CommentController {
 	@Autowired
 	private CommentSerivce service;
 	
+	@PostMapping("add")
+	@ResponseBody
+	public String add(@RequestBody Comment comment) {
+		
+		service.add(comment);
+		
+		return "ok";
+	}
+	
 	@GetMapping("list")
 	@ResponseBody
 	public List<Comment> list(@RequestParam("board") Integer boardId) {

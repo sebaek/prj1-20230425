@@ -13,8 +13,15 @@ public interface CommentMapper {
 			SELECT * 
 			FROM Comment
 			WHERE boardId = #{boardId}
+			ORDER BY id
 			""")
 	List<Comment> selectAllByBoardId(Integer boardId);
+
+	@Insert("""
+			INSERT INTO Comment (boardId, content, memberId)
+			VALUES (#{boardId}, #{content}, #{memberId})
+			""")
+	Integer insert(Comment comment);
 	
 }
 

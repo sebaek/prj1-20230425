@@ -101,7 +101,10 @@
 
 					<div id="commentContainer">
 						
-						<div id="addCommentContainer">댓글 입력창 : 전송</div>
+						<div id="addCommentContainer">
+							<textarea id="commentTextArea"></textarea>
+							<button id="sendCommentBtn">전송</button>
+						</div>
 						<div id="commentListContainer">
 							<div>댓글1 내용 : 누가 : 언제</div>
 							<div>댓글2 내용 : 누가 : 언제</div>
