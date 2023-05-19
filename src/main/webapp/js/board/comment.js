@@ -25,7 +25,10 @@ $("#updateCommentBtn").click(function() {
 	$.ajax("/comment/update", {
 		method: "put",
 		contentType: "application/json",
-		data: JSON.stringify(data)
+		data: JSON.stringify(data),
+		complete: function() {
+			listComment();
+		}
 	})
 })
 
