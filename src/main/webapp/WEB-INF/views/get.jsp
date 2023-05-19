@@ -18,7 +18,7 @@
 	<my:alert></my:alert>
 
 	<!-- toast -->
-	<div class="toast-container top-0 start-50 translate-middle-x p-3">
+	<div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
 		<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
 			<div class="d-flex">
 				<div class="toast-body"></div>
