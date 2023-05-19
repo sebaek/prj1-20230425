@@ -45,8 +45,15 @@ public class CommentSerivce {
 		return mapper.selectById(id);
 	}
 
-	public void update(Comment comment) {
-		mapper.update(comment);
+	public Map<String, Object> update(Comment comment) {
+		int cnt = mapper.update(comment);
+		var res = new HashMap<String, Object>();
+		if (cnt == 1) {
+			res.put("message", "댓글이 수정되었습니다.");
+		} else {
+			res.put("message", "댓글이 수정되지 않았습니다.");
+		}
+		return res;
 	}
 
 }

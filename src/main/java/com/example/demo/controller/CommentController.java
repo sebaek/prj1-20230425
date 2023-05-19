@@ -20,10 +20,10 @@ public class CommentController {
 	
 	@PutMapping("update")
 	@ResponseBody
-	public String update(@RequestBody Comment comment) {
-		service.update(comment);
+	public ResponseEntity<Map<String, Object>> update(@RequestBody Comment comment) {
+		Map<String, Object> res = service.update(comment);
 		
-		return "OK";
+		return ResponseEntity.ok().body(res);
 	}
 	
 	@GetMapping("id/{id}")
