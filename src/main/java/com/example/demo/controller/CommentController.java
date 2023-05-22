@@ -62,11 +62,11 @@ public class CommentController {
 	
 	@GetMapping("list")
 	@ResponseBody
-	public List<Comment> list(@RequestParam("board") Integer boardId) {
+	public List<Comment> list(@RequestParam("board") Integer boardId, Authentication authentication) {
 		
 		
 //		return List.of("댓1", "댓2", "댓3");
-		return service.list(boardId);
+		return service.list(boardId, authentication);
 	}
 }
 
