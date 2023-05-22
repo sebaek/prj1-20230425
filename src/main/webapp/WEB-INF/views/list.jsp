@@ -45,6 +45,13 @@
 								</span>
 							</c:if>
 							
+							<c:if test="${board.commentCount > 0 }">
+								<span class="badge rounded-pill text-bg-dark">
+									<i class="fa-regular fa-comments"></i>
+									${board.commentCount }
+								</span>
+							</c:if>
+							
 						</td>
 						<td>${board.writer }</td>
 						<td>${board.inserted }</td>
