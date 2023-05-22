@@ -3,8 +3,8 @@ listComment();
 $("#sendCommentBtn").click(function() {
 	const boardId = $("#boardIdText").text().trim();
 	const content = $("#commentTextArea").val();
-	const data = {boardId, content};
-	
+	const data = { boardId, content };
+
 	$.ajax("/comment/add", {
 		method: "post",
 		contentType: "application/json",
@@ -13,7 +13,7 @@ $("#sendCommentBtn").click(function() {
 			listComment();
 			$(".toast-body").text(jqXHR.responseJSON.message);
 			toast.show();
-			
+
 			$("#commentTextArea").val("");
 		}
 	});
@@ -23,8 +23,8 @@ $("#updateCommentBtn").click(function() {
 	const commentId = $("#commentUpdateIdInput").val();
 	const content = $("#commentUpdateTextArea").val();
 	const data = {
-		id : commentId,
-		content : content
+		id: commentId,
+		content: content
 	}
 	$.ajax("/comment/update", {
 		method: "put",
@@ -52,22 +52,24 @@ function listComment() {
 						class="commentDeleteButton btn btn-danger"
 						data-bs-toggle="modal"
 						data-bs-target="#deleteCommentConfirmModal"
-						data-comment-id="${comment.id}">삭제</button>
+						data-comment-id="${comment.id}">
+							<i class="fa-regular fa-trash-can"></i>
+						</button>
 					<button
 						id="commentUpdateBtn${comment.id}"
 						class="commentUpdateButton btn btn-secondary"
 						data-bs-toggle="modal" data-bs-target="#commentUpdateModal"
-						data-comment-id="${comment.id}">수정</button>
+						data-comment-id="${comment.id}">
+							<i class="fa-regular fa-pen-to-square"></i>
+						</button>
 				`;
-				
+
 				// console.log(comment);
 				$("#commentListContainer").append(`
 					<li class="list-group-item d-flex justify-content-between align-items-start">
 						<div class="ms-2 me-auto">
-							<div>${comment.memberId}</div>
-							<div>
-								${comment.content}
-							</div>
+							<div class="fw-bold"> <i class="fa-regular fa-user"></i> ${comment.memberId}</div>
+							<div style="white-space: pre-wrap;">${comment.content}</div>
 						</div>
 						<div>
 							<span class="badge bg-primary rounded-pill">${comment.inserted}</span>
@@ -85,27 +87,28 @@ function listComment() {
 					success: function(data) {
 						$("#commentUpdateIdInput").val(data.id);
 						$("#commentUpdateTextArea").val(data.content);
-						
+
 					}
 				})
 			});
-			
-			$("#deleteCommentModalButton").click(function() {
-				const commentId = $(this).attr("data-comment-id");
-				$.ajax("/comment/id/" + commentId, {
-					method: "delete",
-					complete: function(jqXHR) {
-						listComment();
-						$(".toast-body").text(jqXHR.responseJSON.message);
-						toast.show();
-					}
-				});
-			});
+
 			$(".commentDeleteButton").click(function() {
 				const commentId = $(this).attr("data-comment-id");
 				$("#deleteCommentModalButton").attr("data-comment-id", commentId);
 			});
 		}
 	});
-	
+
 }
+
+$("#deleteCommentModalButton").click(function() {
+	const commentId = $(this).attr("data-comment-id");
+	$.ajax("/comment/id/" + commentId, {
+		method: "delete",
+		complete: function(jqXHR) {
+			listComment();
+			$(".toast-body").text(jqXHR.responseJSON.message);
+			toast.show();
+		}
+	});
+});

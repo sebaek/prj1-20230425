@@ -98,14 +98,23 @@
 						</c:if>
 					</sec:authorize>
 
+					<hr />
+					
+					
 
 					<div id="commentContainer">
+						<h1>
+							<i class="fa-solid fa-comments"></i>
+						</h1>
 						<sec:authorize access="isAuthenticated()">
-							<div id="addCommentContainer">
-								<h6>댓글 입력</h6>
+							<div class="mb-3" id="addCommentContainer">
+								
 
 								<div class="input-group">
-									<textarea class="form-control" id="commentTextArea"></textarea>
+									<div class="form-floating">
+										<textarea style="height: 97px" placeholder="댓글을 남겨주세요" class="form-control" id="commentTextArea"></textarea>
+										<label for="floatingTextarea">댓글을 남겨주세요</label>
+									</div>
 									<button class="btn btn-outline-primary" id="sendCommentBtn">
 										<i class="fa-regular fa-paper-plane"></i>
 									</button>
