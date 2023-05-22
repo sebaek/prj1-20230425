@@ -68,7 +68,7 @@ function listComment() {
 				$("#commentListContainer").append(`
 					<li class="list-group-item d-flex justify-content-between align-items-start">
 						<div class="ms-2 me-auto">
-							<div class="fw-bold"> <i class="fa-regular fa-user"></i> ${comment.memberId}</div>
+							<div class="fw-bold"> <i class="fa-solid fa-user"></i> ${comment.memberId}</div>
 							<div style="white-space: pre-wrap;">${comment.content}</div>
 						</div>
 						<div>
