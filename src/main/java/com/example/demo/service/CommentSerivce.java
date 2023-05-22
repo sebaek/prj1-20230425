@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.core.*;
 import org.springframework.stereotype.*;
 import org.springframework.transaction.annotation.*;
 
@@ -21,8 +22,8 @@ public class CommentSerivce {
 		return mapper.selectAllByBoardId(boardId);
 	}
 
-	public Map<String, Object> add(Comment comment) {
-		comment.setMemberId("user9");
+	public Map<String, Object> add(Comment comment, Authentication authentication) {
+		comment.setMemberId(authentication.getName());
 		
 		var res = new HashMap<String, Object>();
 		

@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.*;
+import org.springframework.security.core.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,11 +44,20 @@ public class CommentController {
 	
 	@PostMapping("add")
 //	@ResponseBody
-	public ResponseEntity<Map<String, Object>> add(@RequestBody Comment comment) {
+//	@PreAuthorize("authenticated")
+	public ResponseEntity<Map<String, Object>> add(
+			@RequestBody Comment comment,
+			Authentication authentication) {
 		
-		Map<String, Object> res = service.add(comment);
+		if (authentication == null) {
+			Map<String, Object> res = Map.of("message", "로그인 후 댓글을 작성해주세요.");
+			return ResponseEntity.status(401).body(res);
+		} else {
+			Map<String, Object> res = service.add(comment, authentication);
+			
+			return ResponseEntity.ok().body(res);
+		}
 		
-		return ResponseEntity.ok().body(res);
 	}
 	
 	@GetMapping("list")
