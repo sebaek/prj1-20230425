@@ -13,6 +13,8 @@ $("#sendCommentBtn").click(function() {
 			listComment();
 			$(".toast-body").text(jqXHR.responseJSON.message);
 			toast.show();
+			
+			$("#commentTextArea").val("");
 		}
 	});
 })
@@ -47,23 +49,34 @@ function listComment() {
 				const editButtons = `
 					<button 
 						id="commentDeleteBtn${comment.id}" 
-						class="commentDeleteButton" 
+						class="commentDeleteButton btn btn-danger"
+						data-bs-toggle="modal"
+						data-bs-target="#deleteCommentConfirmModal"
 						data-comment-id="${comment.id}">삭제</button>
-					:
 					<button
 						id="commentUpdateBtn${comment.id}"
-						class="commentUpdateButton"
+						class="commentUpdateButton btn btn-secondary"
+						data-bs-toggle="modal" data-bs-target="#commentUpdateModal"
 						data-comment-id="${comment.id}">수정</button>
 				`;
 				
 				// console.log(comment);
 				$("#commentListContainer").append(`
-					<div>
-						${comment.editable ? editButtons : ''}
-						: ${comment.content} 
-						: ${comment.memberId} 
-						: ${comment.inserted}
-					</div>
+					<li class="list-group-item d-flex justify-content-between align-items-start">
+						<div class="ms-2 me-auto">
+							<div>${comment.memberId}</div>
+							<div>
+								${comment.content}
+							</div>
+						</div>
+						<div>
+							<span class="badge bg-primary rounded-pill">${comment.inserted}</span>
+							<div class="text-end mt-2">
+								${comment.editable ? editButtons : ''}
+							</div>
+						</div>
+						
+					</li>
 				`);
 			};
 			$(".commentUpdateButton").click(function() {
@@ -72,12 +85,12 @@ function listComment() {
 					success: function(data) {
 						$("#commentUpdateIdInput").val(data.id);
 						$("#commentUpdateTextArea").val(data.content);
+						
 					}
 				})
 			});
 			
-			
-			$(".commentDeleteButton").click(function() {
+			$("#deleteCommentModalButton").click(function() {
 				const commentId = $(this).attr("data-comment-id");
 				$.ajax("/comment/id/" + commentId, {
 					method: "delete",
@@ -87,7 +100,11 @@ function listComment() {
 						toast.show();
 					}
 				});
-			})
+			});
+			$(".commentDeleteButton").click(function() {
+				const commentId = $(this).attr("data-comment-id");
+				$("#deleteCommentModalButton").attr("data-comment-id", commentId);
+			});
 		}
 	});
 	
