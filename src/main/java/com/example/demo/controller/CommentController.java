@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.*;
+import org.springframework.security.access.prepost.*;
 import org.springframework.security.core.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ public class CommentController {
 	
 	@PutMapping("update")
 	@ResponseBody
+	@PreAuthorize("authenticated and @customSecurityChecker.checkCommentWriter(authentication, #comment.id)")
 	public ResponseEntity<Map<String, Object>> update(@RequestBody Comment comment) {
 		Map<String, Object> res = service.update(comment);
 		
@@ -36,6 +38,7 @@ public class CommentController {
 //	@RequestMapping(path = "id/{id}", method = RequestMethod.DELETE)
 	@DeleteMapping("id/{id}")
 	@ResponseBody
+	@PreAuthorize("authenticated and @customSecurityChecker.checkCommentWriter(authentication, #id)")
 	public ResponseEntity<Map<String, Object>> remove(@PathVariable("id") Integer id) {
 		Map<String, Object> res = service.remove(id);
 		
